@@ -10,6 +10,19 @@
   font-size: 4rem;
 }
 
+.restart-btn {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  height: auto;
+  margin: auto;
+  font-size: 2rem;
+  background-color: #888;
+  color: white;
+  border: 2px solid black;
+}
+
+
 /* liquor styling */
 .liquor-container {
     border-radius: 5px;
@@ -58,17 +71,6 @@
   font-size: 3rem;
 }
 
-.refresh-btn {
-  display: flex;
-  justify-content: center;
-  width: 25%;
-  height: auto;
-  margin: auto;
-  font-size: 2rem;
-  background-color: #888;
-  color: white;
-  border: 2px solid black;
-}
 
 /* movie styling  */
 .movie-container {
@@ -95,17 +97,6 @@
   font-size: 3rem;
 }
 
-.refresh-btn {
-  display: flex;
-  justify-content: center;
-  width: 25%;
-  height: auto;
-  margin: auto;
-  font-size: 2rem;
-  background-color: #888;
-  color: white;
-  border: 2px solid black;
-}
 
 /*
 * Skeleton V2.0.4
