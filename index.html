@@ -14,31 +14,46 @@
 
 <body>
     <nav class="navbar navbar-dark bg-primary text-center p-3">
-        <h1 class="text-white m-auto">Cocktails & Chill</h1>
-        <h3>Welcome to C & C, choose your liquor and we'll choose your movie for you.</h3>
+        <h1 class="h1 text-white m-auto">Cocktails & Chill</h1>
+        <h5 class="h5">Welcome to C & C, choose your cocktail and we'll choose your movie for you.</h5>
     </nav>
 
     <main class="container">
         <!-- create class container -->
-        <div class="row">
-
-            <div class="eight columns">
-                <!-- create left column -->
-                <div class="row">
-                    <div class="twelve columns">
-                        <card>Whiskey</card>
-                        <card>Tequila</card>
-                        <card>Gin</card>
-                        <card>Vodka</card>
+        <div class="liquor-container">
+            <div id="liquor-selection">
+                <div class="container-text" id="question">Pick your spirit</div>
+                <div id="answer-buttons" class="liquor-btn-grid">
+                    <button class="liquor-btn">Whiskey</button>
+                    <button class="liquor-btn">Tequila</button>
+                    <button class="liquor-btn">Gin</button>
+                    <button class="liquor-btn">Vodka</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cocktail-container">
+            <div id="cocktail-selection">
+                <div class="container-text" id="question">Pick your cocktail</div>
+                    <div id="answer-buttons" class="cocktail-btn-grid">
+                        <button class="cocktail-btn">Cocktail 1</button>
+                        <button class="cocktail-btn">Cocktail 2</button>
+                        <button class="cocktail-btn">Cocktail 3</button>
                     </div>
+                </div>
+            </div>
+            <button class="restart-btn">Restart</button>    
+        </div>
 
+        <div class="movie-container">
+            <div id="movie-title">
+                <div class="container-text" id="question">Here's your perfect movie</div>
+                    <div class="movie-btn-grid">
+                        <button class="movie-btn">Movie 1</button>
+                    </div>
                 </div>
             </div>
-            <div class="four columns">
-                <div class="row">
-                    <div class="twelve columns"></div>
-                </div>
-            </div>
+            <button class="restart-btn">Restart</button>  
         </div>
     </main>
 
