@@ -70,6 +70,43 @@
   border: 2px solid black;
 }
 
+/* movie styling  */
+.movie-container {
+  margin: auto;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-btn-grid {
+  display: grid;
+  width: auto;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+  grid-template-columns: repeat(1, auto);
+}
+
+.movie-btn {
+  width: 350px;
+  height: 125px;
+  margin: 15px;
+  font-size: 3rem;
+}
+
+.refresh-btn {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  height: auto;
+  margin: auto;
+  font-size: 2rem;
+  background-color: #888;
+  color: white;
+  border: 2px solid black;
+}
+
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
