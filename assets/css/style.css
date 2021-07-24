@@ -3,6 +3,13 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+.container-text {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 4rem;
+}
+
 /* liquor styling */
 .liquor-container {
     border-radius: 5px;
@@ -26,18 +33,13 @@
   font-size: 3rem;
 }
 
-.container-text {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  font-size: 4rem;
-}
-
 /* cocktail styling */
 .cocktail-container {
   margin: auto;
   width: 100%;
   padding: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .cocktail-btn-grid {
@@ -54,6 +56,18 @@
   height: 125px;
   margin: 15px;
   font-size: 3rem;
+}
+
+.refresh-btn {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  height: auto;
+  margin: auto;
+  font-size: 2rem;
+  background-color: #888;
+  color: white;
+  border: 2px solid black;
 }
 
 /*
