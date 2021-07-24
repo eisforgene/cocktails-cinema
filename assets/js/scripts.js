@@ -1,16 +1,12 @@
 let liquorChoice = document.getElementById('answer-buttons');
-let liquorContainerEl = document.getElementById('card-container');
-let questions = []
+let liquorContainerEl = document.getElementById('liquor-selection');
+let questionContainerEl = document.getElementById('question-container');
 
 // object.addEventListener(event, function)
-liquorChoice.addEventListener('click', function() {
-    console.log('hi');
-    let liquorAnswer = document.getElementBy
-
-})
+liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
 function liquorSelection() {
-
+    console.log('Started');
 }
 
 function cocktailSelection () {
@@ -18,12 +14,13 @@ function cocktailSelection () {
 }
 
 function restart () {
-    
+
 }
 
 function displayMovie () {
 
 }
+
 
 
 

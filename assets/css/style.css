@@ -3,19 +3,15 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.container {
-    width: 800px;
-    max-width: 80%;
+/* liquor styling */
+.liquor-container {
     border-radius: 5px;
     box-shadow: 0 0 2px 2px;
-    text-align: left;
     padding: 10px;
-
 }
 
-.btn-grid {
+.liquor-btn-grid {
     display: grid;
-    /* grid-template-columns: repeat(2, auto); */
     width: auto;
     gap: 10px;
     margin: 20px 0;
@@ -24,16 +20,40 @@
 }
 
 .liquor-btn {
-  width: 300px;
-  height: 100px;
+  width: 350px;
+  height: 125px;
   margin: 15px;
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .container-text {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 4rem;
+}
+
+/* cocktail styling */
+.cocktail-container {
+  margin: auto;
+  width: 100%;
+  padding: 25px;
+}
+
+.cocktail-btn-grid {
+  display: grid;
+  width: auto;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cocktail-btn {
+  width: 350px;
+  height: 125px;
+  margin: 15px;
+  font-size: 3rem;
 }
 
 /*
