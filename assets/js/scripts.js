@@ -1,10 +1,42 @@
-let liquorAnswer = document.querySelector('.liquor-btn');
+let liquorChoice = document.getElementById('answer-buttons');
 let liquorContainerEl = document.getElementById('card-container');
 let questions = []
 
-liquorAnswer.addEventListener('click', selectAnswer);
+// object.addEventListener(event, function)
+liquorChoice.addEventListener('click', function() {
+    console.log('hi');
+    let liquorAnswer = document.getElementBy
 
-function selectAnswer() {
-    console.log('Whiskey');
-};
+})
+
+function liquorSelection() {
+
+}
+
+function cocktailSelection () {
+
+}
+
+function restart () {
+    
+}
+
+function displayMovie () {
+
+}
+
+
+
+// liquo.addEventListener('click', liquorSelection);
+
+// function liquorSelection(event) {
+//     console.log(target);
+//     console.log(type);
+// }
+
+// liquorAnswer.addEventListener('click', selectAnswer);
+
+// function selectAnswer() {
+//     console.log('Whiskey');
+// };
 
