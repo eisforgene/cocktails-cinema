@@ -1,6 +1,7 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let liquorContainerEl = document.getElementById('liquor-selection');
 let questionContainerEl = document.getElementById('question-container');
+let cocktailChoice = document.getElementById('liquor-btn')
 
 // object.addEventListener(event, function)
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
