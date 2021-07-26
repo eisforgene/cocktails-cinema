@@ -13,6 +13,8 @@
 
   
 let liquorChoice = document.getElementById('answer-buttons');
+
+
 // let questionContainerEl = document.getElementById('liquor-container');
 // let refreshBtn = document.querySelector('restart-btn');
 
@@ -20,8 +22,9 @@ let liquorChoice = document.getElementById('answer-buttons');
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
 function liquorSelection(event) {
-    event.preventDefault(); 
+    event.preventDefault();  
     console.log(event.target.value); // target value within the button
+    let liquorAnswer = event.target.value;
 }
 
 function cocktailSelection() {
