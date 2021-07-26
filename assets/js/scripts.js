@@ -37,11 +37,15 @@ function displayMovie() {
 // function selectAnswer() {
 //     console.log('Whiskey');
 // };
-
+function movieSearch( ){
 fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
     .then(function (movieRes) {
         return movieRes.json();
     }).then(function (movieData) {
         console.log(movieData)
+        for (var i = 0; i > 6 ; i++){
+            console.log(movieData.search[i].title)
+        }
     });
     //let movieTitle = 
+}
