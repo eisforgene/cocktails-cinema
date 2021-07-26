@@ -10,15 +10,15 @@ function liquorSelection() {
     console.log('Started');
 }
 
-function cocktailSelection () {
+function cocktailSelection() {
 
 }
 
-function restart () {
+function restart() {
 
 }
 
-function displayMovie () {
+function displayMovie() {
 
 }
 
@@ -38,9 +38,10 @@ function displayMovie () {
 //     console.log('Whiskey');
 // };
 
-fetch(`http://www.omdbapi.com/?apikey=1c8371fd&i=tt0241527&s=${liquorChoice}`)
-    .then(function (movieRes){
+fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+    .then(function (movieRes) {
         return movieRes.json();
-    }).then(function(movieData) {
+    }).then(function (movieData) {
         console.log(movieData)
     });
+    //let movieTitle = 
