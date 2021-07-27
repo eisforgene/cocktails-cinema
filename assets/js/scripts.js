@@ -1,3 +1,4 @@
+
 let liquorChoice = document.getElementById('answer-buttons');
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
@@ -9,6 +10,7 @@ function liquorSelection(event) {
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString); // invoke/call function with urlString as a parameter/argument
 }
+
 
 function getCocktails(urlString) { //call function with urlString as parameter from liquorSelection();
     fetch(urlString) 
@@ -37,6 +39,17 @@ function displayCocktails(cocktails) {
 
 function selectCocktail(cocktail) { // select cocktails -- do stuff
 
+function cocktailSelection() {
+
+}
+
+function restart() {
+
+}
+
+function displayMovie() {
+ main
+
 }
 
 function displayMovie() {
@@ -44,5 +57,16 @@ function displayMovie() {
 }
 
 
-
+function movieSearch( ){
+fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+    .then(function (movieRes) {
+        return movieRes.json();
+    }).then(function (movieData) {
+        console.log(movieData)
+        for (var i = 0; i > 6 ; i++){
+            console.log(movieData.search[i].title)
+        }
+    });
+    //let movieTitle = 
+}
 
