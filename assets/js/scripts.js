@@ -37,15 +37,20 @@ function displayMovie() {
 // function selectAnswer() {
 //     console.log('Whiskey');
 // };
-function movieSearch( ){
+//Function to build out movie selection
+//function movieSearch( ){
 fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+//change s=action to s=${liquorSelection}
     .then(function (movieRes) {
         return movieRes.json();
     }).then(function (movieData) {
         console.log(movieData)
         for (var i = 0; i > 6 ; i++){
-            console.log(movieData.search[i].title)
+            console.log(movieData.search.search[i].title)
+            console.log(movieData.search[i].Poster)
         }
     });
     //let movieTitle = 
-}
+    //when image comes up it is clickable to go to amazom 
+    //https:www.amazom.com/s=movieTitle 
+//}
