@@ -50,6 +50,7 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
             console.log(movieData.search[i].Poster)
         }
     });
+movieChoice.addEventListener.getElementById("click", movie-btn) //calls movie image 
     //let movieTitle = 
     //when image comes up it is clickable to go to amazom 
     //https:www.amazom.com/s=movieTitle 
