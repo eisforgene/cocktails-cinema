@@ -1,6 +1,16 @@
 
 let liquorChoice = document.getElementById('answer-buttons');
 
+document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
+    console.log(event);
+
+    if (event.target.matches('img')) {
+        // alert('image clicked');
+
+        movieSearch()
+    }
+});
+
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
 function liquorSelection(event) {
@@ -80,42 +90,31 @@ function displayMovie() {
 //     console.log('Whiskey');
 // };
 //Function to build out movie selection
-//function movieSearch( ){
-fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
-    //change s=action to s=${liquorSelection}
-    .then(function (movieRes) {
-        return movieRes.json();
-    }).then(function (movieData) {
-        console.log(movieData);
-        for (var i = 0; i < 6; i++) {
+function movieSearch() {
+    //     let searchMovie = [whiskey,]
+    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=whiskey`)
+        //change s=action to s=${liquorSelection}
+        .then(function (movieRes) {
+            return movieRes.json();
+        }).then(function (movieData) {
+            console.log(movieData);
+            for (var i = 0; i < 6; i++); {
 
 
-            console.log(movieData.Search[i].Title);
-            document.getElementById("movie-header").textContent = movieData.Search[0].Title;
-            let movieCard = document.createElement("div");
+                console.log(movieData.Search[i].Title);
+                let randomIndex = Math.floor(Math.random()*10);
+                document.getElementById("movie-header").textContent = movieData.Search[randomIndex].Title;
+                let movieCard = document.createElement("div");
 
-            movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
-            let header = document.createElement('h2');
+                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                let header = document.createElement('h2');
 
-            let movieTitle = movieData.Search[i].Title;
-
-
-
+                let movieTitle = movieData.Search[i].Title;
 
 
-            //let movieImg = document.createElement('movieImg')
-            //movieImg.setAttribute = //src 
-            //movieImg.setAttribute = // alt
-
-
-        };
-    });
-// function movieChoice() {
-//     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
-//     //let movieTitle = 
-//     //when image comes up it is clickable to go to amazom 
-//     //https:www.amazom.com/s=movieTitle 
-// };
-
-    //WTF is going on
-
+                let movieImg = document.createElement('movieImg');
+                //movieImg.setAttribute = //src 
+                //movieImg.setAttribute = // alt
+             };
+        });
+};
