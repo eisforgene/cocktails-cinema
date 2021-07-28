@@ -15,12 +15,12 @@ liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection
 function liquorSelection(event) {
     event.preventDefault();
     console.log(event.target.value); // target value within the button
-    const liquorAnswer = event.target .value; // store value in const variable
+    const liquorAnswer = event.target.value; // store value in const variable
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
-    getCocktails(urlString); // invoke/call function with urlString as a parameter/argument
+    getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
 }
 
-function getCocktails(urlString) { //call function with urlString as parameter from liquorSelection();
+function getCocktails(urlString, drinkType) { //call function with urlString as parameter from liquorSelection();
     fetch(urlString)
         .then(function (result) {
             return result.json();
@@ -32,10 +32,14 @@ function getCocktails(urlString) { //call function with urlString as parameter f
 
             for (let i = 0; i < 3; i++) {
 
-                let array = result.drinks
-                let randomIndex = Math.floor(Math.random()*array.length)
-
-                const cocktails = result.drinks[randomIndex];
+                if (drinkType !== 'whiskey') {
+                    let array = result.drinks
+                    let randomIndex = Math.floor(Math.random() * array.length)
+              
+                    var cocktails = result.drinks[randomIndex];
+                } else {
+                    var cocktails = result.drinks[i]
+                }
 
                 const cocktailCard = document.createElement('div');
                 cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
