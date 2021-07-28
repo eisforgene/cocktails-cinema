@@ -76,11 +76,13 @@ function movieSearch() {
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
                 
+                let randomIndex = Math.floor(Math.random()*10) // floor is to round down
+
                 let movieCard = document.createElement("div");
                 movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
                 
                 let header = document.createElement('h3');
-                header.textContent = movieData.Search[i].Title;
+                header.textContent = movieData.Search[randomIndex].Title;
 
                 movieCard.appendChild(header);
 
