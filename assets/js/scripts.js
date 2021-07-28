@@ -96,7 +96,7 @@ function movieSearch() {
                     // apend the anchor to the body
                     // of course you can append it almost to any other dom element
                 
-                    document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
+                    document.getElementsByTagName('h4')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
             };
         });
 };

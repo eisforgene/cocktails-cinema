@@ -3,6 +3,16 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+body{
+  justify-content: center;
+  background-color: #d5f4e6;
+}
+nav{
+  background-color: #618685 ;
+  color: white;
+  text-align: center;
+}
+
 .container-text {
   display: flex;
   justify-content: center;

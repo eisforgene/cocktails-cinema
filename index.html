@@ -9,13 +9,13 @@
         integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Cocktails and movies</title>
+    <title>Cocktails and Cinema</title>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary text-center p-3">
-        <h1 class="h1 text-white m-auto">Cocktail Movie Date Night</h1>
-        <h5 class="h5">Welcome to your fun date night! Choose your cocktail and we'll choose a movie for you!</h5>
+        <h1 class="h1 text-white m-auto">Cocktails and Cinema</h1>
+        <h5 class="h5">Hello, and welcome to your new way to choose a movie. We provide you with choices in liquor. You choose your liquor, then we give you three cocktail selections. You pick one of the three and we give you a movie to watch.  You can rent of buy the movie on Amazon with the provided link.  </h5>
     </nav>
 
     <main class="container">
@@ -31,30 +31,33 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="cocktail-container">
             <div id="cocktail-selection">
                 <div class="container-text" id="question">Pick your cocktail</div>
-                    <div id="cocktail-answer" class="cocktail-btn-grid"></div>
-                </div>
+                <div id="cocktail-answer" class="cocktail-btn-grid"></div>
             </div>
+        </div>
 
-            <button onClick="window.location.reload()" class="restart-btn">Restart</button>    
+        <button onClick="window.location.reload()" class="restart-btn">Restart</button>
 
         </div>
 
         <div class="movie-container">
             <div id="movie-title">
                 <div class="container-text" id="question">Here's your perfect movie
-                    <div class="movie-text">
-                    </div>
-                    <div id="movie-link">
-                    </div>
+                    <div class="movie-text"> </div>
+                    <div id="movie-link"></div>
                 </div>
+
             </div>
         </div>
+        </div>
     </main>
-
+    <footer>
+        An app created by Eugene, Megan, Matt and Richie.
+        Data provided by OMDB API and The CoctailDB API
+    </footer>
     <script src="./assets/js/scripts.js"></script>
 </body>
 
