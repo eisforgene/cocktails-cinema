@@ -61,12 +61,13 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
 
         
     };
-
+ });
 // function movieChoice() {
 //     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
 //     //let movieTitle = 
 //     //when image comes up it is clickable to go to amazom 
 //     //https:www.amazom.com/s=movieTitle 
 // };
-    });
-    function
+   
+    //WTF is going on
+    
