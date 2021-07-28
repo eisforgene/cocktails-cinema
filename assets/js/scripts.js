@@ -82,18 +82,17 @@ function movieSearch() {
                 let movieCard = document.createElement("div");
                 movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
                 
-                let header = document.createElement('h3');
+                let header = document.createElement('h3'); //sets the movie title on page 
                 header.textContent = movieData.Search[randomIndex].Title;
 
                 movieCard.appendChild(header);
 
                 document.querySelector('#movie-title').appendChild(movieCard);
-                
-                // movieCard.appendChild(img);
-
-                //let movieImg = document.createElement('movieImg')
-                //movieImg.setAttribute = //src 
-                //movieImg.setAttribute = // alt
+           
+                let moviePoster = movieData.Search[i].Poster; //gets poster from API 
+                let movieImg = document.querySelector('#movie-poster')
+                movieImg.setAttribute('src', movieData.Search[i].Poster);
+                movieImg.setAttribute ('alt', movieData.Search[i].Title);
             };
         });
 };
