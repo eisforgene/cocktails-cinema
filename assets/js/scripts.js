@@ -9,6 +9,16 @@ document.querySelector('#cocktail-answer').addEventListener('click', function(ev
     }
 })
 
+document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
+    console.log(event);
+
+    if (event.target.matches('img')) {
+        // alert('image clicked');
+
+        movieSearch()
+    }
+});
+
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
 
@@ -28,8 +38,8 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         .then(function (result) {
             console.log(result.drinks);
 
-            document.querySelector('#cocktail-answer').innerHTML = '';
 
+            document.querySelector('#cocktail-answer').innerHTML = '';
 
             for (let i = 0; i < 3; i++) {
                 const cocktails = result.drinks[i];
@@ -67,12 +77,40 @@ function displayMovie() {
 //Function to build out movie selection
 
 function movieSearch() {
+    //     let searchMovie = [whiskey,]
+    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=whiskey`)
+
+
+function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+      
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
+      
+            for (var i = 0; i < 6; i++); {
+
+
+                console.log(movieData.Search[i].Title);
+                let randomIndex = Math.floor(Math.random()*10);
+                document.getElementById("movie-header").textContent = movieData.Search[randomIndex].Title;
+                let movieCard = document.createElement("div");
+
+                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                let header = document.createElement('h2');
+
+                let movieTitle = movieData.Search[i].Title;
+
+
+                let movieImg = document.createElement('movieImg');
+                //movieImg.setAttribute = //src 
+                //movieImg.setAttribute = // alt
+             };
+        });
+};
+
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
                 
@@ -115,3 +153,4 @@ function movieSearch() {
 // breaksize for images
 // center titles
 // basic styling: hover on cocktail card, transition? 
+
