@@ -18,21 +18,34 @@ function getCocktails(urlString) { //call function with urlString as parameter f
             return result.json();
         })
         .then(function (result) {
-            console.log(result.drinks[0]);
-           
-            const cocktails = result.drinks[0];
-            let cocktailDisplay = document.querySelector('#cocktail-answer');
-            let cocktailImage = document.createElement('img'); 
-            
-            cocktailImage.setAttribute('src', cocktails.strDrinkThumb);
+            console.log(result.drinks);
 
-            cocktailDisplay.appendChild(cocktailImage);
-            displayCocktails(cocktails);
-            // const reponseCardEl = document.querySelector('.cocktail-btn');
-            // responseCardEl.innerHTML = '<button>' + cocktails + '</button>'
-            // cocktails.forEach(function (cocktail) {
-            //     displayCocktails(cocktail);
-            // });
+            for (let i=0;i<3;i++) {
+                const cocktailCard = document.createElement('div');
+                cocktailCard.setAttribute('class', 'cocktail-card');
+
+                const header = document.createElement('h2');
+                header.textContent = result.drinks[i].strDrink;
+
+                const img = document.createElement('img');
+                img.setAttribute('src', result.drinks[i].strDrinkThumb);
+                img.setAttribute('alt', result.drinks[i].strDrink);
+                
+                cocktailCard.appendChild(header);
+                cocktailCard.appendChild(img);
+
+                document.querySelector('#cocktail-answer').appendChild(cocktailCard);
+            }
+           
+            // const cocktails = result.drinks[0];
+            // let cocktailDisplay = document.querySelector('#cocktail-answer');
+            // let cocktailImage = document.createElement('img'); 
+            
+            // cocktailImage.setAttribute('src', cocktails.strDrinkThumb);
+
+            // cocktailDisplay.appendChild(cocktailImage);
+            // displayCocktails(cocktails);
+           
         })
 }
 
@@ -40,6 +53,7 @@ function getCocktails(urlString) { //call function with urlString as parameter f
 // display titles // ingredients
 // hide previous container after cocktails visible
 // show all cocktails in each container simultaneously
+// breaksize for images
 
 function displayCocktails(cocktails) {
 
