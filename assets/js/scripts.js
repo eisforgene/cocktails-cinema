@@ -42,9 +42,9 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         })
 };
 
-function selectCocktail(cocktailCard) { // select cocktails -- do stuff
+function selectCocktail() { // select cocktails -- do stuff
     let cocktailChoice = document.getElementById('.cocktail-card');
-    cocktailChoice.addEventListener('click', '.cocktail-card')
+    cocktailChoice.addEventListener('click', movieSearch())
 };
 
 function displayMovie() {
@@ -55,32 +55,36 @@ function displayMovie() {
 //     console.log('Whiskey');
 // };
 //Function to build out movie selection
-function movieSearch() {
+
+// function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
-            for (var i = 0; i < 6; i++) {
-
-
+            for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
-                document.getElementById("movie-header").textContent = movieData.Search[0].Title;
+                
                 let movieCard = document.createElement("div");
-
                 movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                
                 let header = document.createElement('h2');
+                header.textContent = movieData.Search[i].Title;
 
-                let movieTitle = movieData.Search[i].Title;
+                movieCard.appendChild(header);
+
+                document.querySelector('.movie-text').appendChild(movieCard);
+                
+                // movieCard.appendChild(img);
 
                 //let movieImg = document.createElement('movieImg')
                 //movieImg.setAttribute = //src 
                 //movieImg.setAttribute = // alt
             };
         });
-}
 
+// };
 
 // function movieChoice() {
 //     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
