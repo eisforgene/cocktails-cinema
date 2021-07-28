@@ -27,10 +27,7 @@ function getCocktails(urlString) { //call function with urlString as parameter f
             cocktailImage.setAttribute('src', cocktails.strDrinkThumb);
 
             cocktailDisplay.appendChild(cocktailImage);
-            
-            
-
-
+            displayCocktails(cocktails);
             // const reponseCardEl = document.querySelector('.cocktail-btn');
             // responseCardEl.innerHTML = '<button>' + cocktails + '</button>'
             // cocktails.forEach(function (cocktail) {
@@ -39,13 +36,15 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         })
 }
 
+// make pictures into buttons
+// display titles // ingredients
+// hide previous container after cocktails visible
+// show all cocktails in each container simultaneously
+
 function displayCocktails(cocktails) {
-    let searchTerm = cocktails.drinks[0].strDrinkThumb// cocktail array of results
-    
-    let cocktailDisplay = document.querySelector('.answer-buttons');
-    cocktailDisplay.innerHTML = " ";
-    cocktailDisplay.appendChild();
-    
+
+    // cocktail array of results
+
     // create element with cocktail info
     // query selector parent element
     // append cocktail element to parent
