@@ -88,22 +88,19 @@ function movieSearch() {
                 movieCard.appendChild(header);
 
                 document.querySelector('#movie-title').appendChild(movieCard);
-           
-                let moviePoster = movieData.Search[i].Poster; //gets poster from API 
-                let movieImg = document.querySelector('#movie-poster')
-                movieImg.setAttribute('src', movieData.Search[i].Poster);
-                movieImg.setAttribute ('alt', movieData.Search[i].Title);
+                
+                var desiredLink = href="https://www.amazon.com";
+                let movieLink = document.createElement('movie-link');
+                    movieLink.setAttribute('href', desiredLink);
+                    movieLink.innerHTML = "Your Perfect Movie";
+                    // apend the anchor to the body
+                    // of course you can append it almost to any other dom element
+                    document.getElementsByTagName('body')[0].appendChild(movieLink);
+
+                    //document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+desiredText+'</a>';
             };
         });
 };
-
-
-// function movieChoice() {
-//     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
-//     //let movieTitle = 
-//     //when image comes up it is clickable to go to amazom 
-//     //https:www.amazom.com/s=movieTitle 
-// };
 
     //WTF is going on
 
