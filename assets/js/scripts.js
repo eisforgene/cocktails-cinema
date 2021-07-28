@@ -21,39 +21,34 @@ function getCocktails(urlString) { //call function with urlString as parameter f
             console.log(result.drinks);
 
             for (let i=0;i<3;i++) {
+                const cocktails = result.drinks[i];
                 const cocktailCard = document.createElement('div');
-                cocktailCard.setAttribute('class', 'cocktail-card');
+                cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
 
                 const header = document.createElement('h2');
-                header.textContent = result.drinks[i].strDrink;
+                header.textContent = cocktails.strDrink;
 
                 const img = document.createElement('img');
-                img.setAttribute('src', result.drinks[i].strDrinkThumb);
-                img.setAttribute('alt', result.drinks[i].strDrink);
+                img.setAttribute('src', cocktails.strDrinkThumb);
+                img.setAttribute('alt', cocktails.strDrink);
                 
                 cocktailCard.appendChild(header);
                 cocktailCard.appendChild(img);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
             }
-           
-            // const cocktails = result.drinks[0];
-            // let cocktailDisplay = document.querySelector('#cocktail-answer');
-            // let cocktailImage = document.createElement('img'); 
-            
-            // cocktailImage.setAttribute('src', cocktails.strDrinkThumb);
+            displayCocktails(cocktails);
 
-            // cocktailDisplay.appendChild(cocktailImage);
-            // displayCocktails(cocktails);
-           
         })
-}
+};
 
-// make pictures into buttons
-// display titles // ingredients
-// hide previous container after cocktails visible
-// show all cocktails in each container simultaneously
+// make pictures into buttons (event listener --> direct choice to produce random movie image
+// prevent clicking other buttons after clicking one to prevent more images showing
+// hiding container by using a callback function after the appropriate section
+
 // breaksize for images
+// center titles
+// basic styling
 
 function displayCocktails(cocktails) {
 
