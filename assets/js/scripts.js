@@ -69,3 +69,4 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
 //     //https:www.amazom.com/s=movieTitle 
 // };
     });
+    function
