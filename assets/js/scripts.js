@@ -114,4 +114,4 @@ function movieSearch() {
 
 // breaksize for images
 // center titles
-// basic styling
+// basic styling: hover on cocktail card, transition? 
