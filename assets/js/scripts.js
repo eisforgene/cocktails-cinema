@@ -1,14 +1,43 @@
 
 let liquorChoice = document.getElementById('answer-buttons');
-let liquorContainerEl = document.getElementById('liquor-selection');
-let questionContainerEl = document.getElementById('question-container');
 
-// object.addEventListener(event, function)
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
-function liquorSelection() {
-    console.log('Started');
+function liquorSelection(event) {
+    event.preventDefault();  
+    console.log(event.target.value); // target value within the button
+    const liquorAnswer = event.target.value; // store value in const variable
+    const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
+    getCocktails(urlString); // invoke/call function with urlString as a parameter/argument
 }
+
+
+function getCocktails(urlString) { //call function with urlString as parameter from liquorSelection();
+    fetch(urlString) 
+    .then(function(result) {
+       return result.json();
+    })
+    .then(function(result) {
+        console.log(result);
+        const cocktails = result.drinks[0].strDrinkThumb;
+
+        const reponseCardEl = document.querySelector('.cocktail-btn');
+        responseCardEl.innerHTML = '<button>' + cocktails + '</button>'
+        cocktails.forEach(function(cocktail) {
+            displayCocktails(cocktail);
+        }); 
+    })
+}
+
+function displayCocktails(cocktails) {
+    let searchTerm = cocktails.drinks[0].strDrinkThumb// cocktail array of results
+    // create element with cocktail info
+    // query selector parent element
+    // append cocktail element to parent
+
+}
+
+function selectCocktail(cocktail) { // select cocktails -- do stuff
 
 function cocktailSelection() {
 
@@ -19,26 +48,24 @@ function restart() {
 }
 
 function displayMovie() {
+ main
+
+}
+
+function displayMovie() {
 
 }
 
 
-
-
-// liquo.addEventListener('click', liquorSelection);
-
-// function liquorSelection(event) {
-//     console.log(target);
-//     console.log(type);
-// }
-
-// liquorAnswer.addEventListener('click', selectAnswer);
 
 // function selectAnswer() {
 //     console.log('Whiskey');
 // };
 //Function to build out movie selection
 //function movieSearch( ){
+=======
+function movieSearch( ){
+
 fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
 //change s=action to s=${liquorSelection}
     .then(function (movieRes) {
@@ -55,3 +82,6 @@ movieChoice.addEventListener.getElementById("click", movie-btn) //calls movie im
     //when image comes up it is clickable to go to amazom 
     //https:www.amazom.com/s=movieTitle 
 //}
+=======
+}
+
