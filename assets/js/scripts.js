@@ -20,7 +20,7 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         .then(function (result) {
             console.log(result.drinks);
 
-            for (let i=0;i<3;i++) {
+            for (let i = 0; i < 3; i++) {
                 const cocktails = result.drinks[i];
                 const cocktailCard = document.createElement('div');
                 cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
@@ -31,7 +31,7 @@ function getCocktails(urlString) { //call function with urlString as parameter f
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
-                
+
                 cocktailCard.appendChild(header);
                 cocktailCard.appendChild(img);
 
@@ -81,7 +81,6 @@ function displayMovie() {
 // };
 //Function to build out movie selection
 //function movieSearch( ){
-<<<<<<< HEAD
 fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
     //change s=action to s=${liquorSelection}
     .then(function (movieRes) {
@@ -89,50 +88,34 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
     }).then(function (movieData) {
         console.log(movieData);
         for (var i = 0; i < 6; i++) {
-            console.log(movieData.Search[i].Title);
 
+
+            console.log(movieData.Search[i].Title);
+            document.getElementById("movie-header").textContent = movieData.Search[0].Title;
+            let movieCard = document.createElement("div");
+
+            movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
             let header = document.createElement('h2');
+
             let movieTitle = movieData.Search[i].Title;
 
 
-            let movieCard = document.createElement("div");
-            movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
 
-            let movieImg = document.createElement('movieImg')
+
+
+            //let movieImg = document.createElement('movieImg')
             //movieImg.setAttribute = //src 
             //movieImg.setAttribute = // alt
 
-        
-    };
- });
+
+        };
+    });
 // function movieChoice() {
 //     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
 //     //let movieTitle = 
 //     //when image comes up it is clickable to go to amazom 
 //     //https:www.amazom.com/s=movieTitle 
 // };
-   
-    //WTF is going on
-    
-=======
 
-function movieSearch() {
-    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
-        //change s=action to s=${liquorSelection}
-        .then(function (movieRes) {
-            return movieRes.json();
-        }).then(function (movieData) {
-            console.log(movieData)
-            for (var i = 0; i > 6; i++) {
-                console.log(movieData.search.search[i].title)
-                console.log(movieData.search[i].Poster)
-            }
-        });
-    function movieChoice() {
-        document.querySelectorAll(".movie-btn", el.click()); //calls movie image
-        //let movieTitle =
-        //when image comes up it is clickable to go to amazom
-        //https:www.amazom.com/s=movieTitle
-    }
-};
->>>>>>> 30eeda356877303f885d4b913c5b7725d64c7622
+    //WTF is going on
+
