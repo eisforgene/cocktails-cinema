@@ -11,7 +11,6 @@ function liquorSelection(event) {
     getCocktails(urlString); // invoke/call function with urlString as a parameter/argument
 }
 
-
 function getCocktails(urlString) { //call function with urlString as parameter from liquorSelection();
     fetch(urlString)
         .then(function (result) {
@@ -19,6 +18,9 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         })
         .then(function (result) {
             console.log(result.drinks);
+
+            document.querySelector('#cocktail-answer').innerHTML = '';
+
 
             for (let i = 0; i < 3; i++) {
                 const cocktails = result.drinks[i];
@@ -37,79 +39,49 @@ function getCocktails(urlString) { //call function with urlString as parameter f
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
             }
-            displayCocktails(cocktails);
-
         })
 };
 
-// make pictures into buttons (event listener --> direct choice to produce random movie image
-// prevent clicking other buttons after clicking one to prevent more images showing
-// hiding container by using a callback function after the appropriate section
-
-// breaksize for images
-// center titles
-// basic styling
-
-function displayCocktails(cocktails) {
-
-    // cocktail array of results
-
-    // create element with cocktail info
-    // query selector parent element
-    // append cocktail element to parent
-
-}
-
-function selectCocktail(cocktail) { // select cocktails -- do stuff
-}
-
-function cocktailSelection() {
-
-}
-
-function restart() {
-
-}
+function selectCocktail(cocktailCard) { // select cocktails -- do stuff
+    let cocktailChoice = document.getElementById('.cocktail-card');
+    cocktailChoice.addEventListener('click', '.cocktail-card')
+};
 
 function displayMovie() {
     main
-
 }
 
 // function selectAnswer() {
 //     console.log('Whiskey');
 // };
 //Function to build out movie selection
-//function movieSearch( ){
-fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
-    //change s=action to s=${liquorSelection}
-    .then(function (movieRes) {
-        return movieRes.json();
-    }).then(function (movieData) {
-        console.log(movieData);
-        for (var i = 0; i < 6; i++) {
+function movieSearch() {
+    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+        //change s=action to s=${liquorSelection}
+        .then(function (movieRes) {
+            return movieRes.json();
+        }).then(function (movieData) {
+            console.log(movieData);
+            for (var i = 0; i < 6; i++) {
 
 
-            console.log(movieData.Search[i].Title);
-            document.getElementById("movie-header").textContent = movieData.Search[0].Title;
-            let movieCard = document.createElement("div");
+                console.log(movieData.Search[i].Title);
+                document.getElementById("movie-header").textContent = movieData.Search[0].Title;
+                let movieCard = document.createElement("div");
 
-            movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
-            let header = document.createElement('h2');
+                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                let header = document.createElement('h2');
 
-            let movieTitle = movieData.Search[i].Title;
+                let movieTitle = movieData.Search[i].Title;
+
+                //let movieImg = document.createElement('movieImg')
+                //movieImg.setAttribute = //src 
+                //movieImg.setAttribute = // alt
+            };
+        });
+}
 
 
-
-
-
-            //let movieImg = document.createElement('movieImg')
-            //movieImg.setAttribute = //src 
-            //movieImg.setAttribute = // alt
-
-
-        };
-    });
 // function movieChoice() {
 //     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
 //     //let movieTitle = 
@@ -119,3 +91,11 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
 
     //WTF is going on
 
+// Eugene Notes for to-do:
+// make pictures into buttons (event listener --> direct choice to produce random movie image
+// prevent clicking other buttons after clicking one to prevent more images showing
+// hiding container by using a callback function after the appropriate section
+
+// breaksize for images
+// center titles
+// basic styling
