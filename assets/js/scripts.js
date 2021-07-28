@@ -47,13 +47,25 @@ fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
         console.log(movieData);
         for (var i = 0; i < 6; i++) {
             console.log(movieData.Search[i].Title);
+
+            let header = document.createElement('h2');
             let movieTitle = movieData.Search[i].Title;
-            document.querySelector('#movie-container').innerHTML = '<h2>' +  movieTitle + '</h2>'
-        }
+
+
+            let movieCard = document.createElement("div");
+            movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+
+            let movieImg = document.createElement('movieImg')
+            //movieImg.setAttribute = //src 
+            //movieImg.setAttribute = // alt
+
+        
+    };
+
+// function movieChoice() {
+//     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
+//     //let movieTitle = 
+//     //when image comes up it is clickable to go to amazom 
+//     //https:www.amazom.com/s=movieTitle 
+// };
     });
-function movieChoice() {
-    document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
-    //let movieTitle = 
-    //when image comes up it is clickable to go to amazom 
-    //https:www.amazom.com/s=movieTitle 
-};
