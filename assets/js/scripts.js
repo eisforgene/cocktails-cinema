@@ -90,14 +90,13 @@ function movieSearch() {
                 document.querySelector('#movie-title').appendChild(movieCard);
                 
                 var desiredLink = href="https://www.amazon.com";
-                let movieLink = document.createElement('movie-link');
-                    movieLink.setAttribute('href', desiredLink);
-                    movieLink.innerHTML = "Your Perfect Movie";
+                let a = document.createElement('movie-link');
+                    a.setAttribute('href', desiredLink);
+                    a.innerHTML = "Your Perfect Movie";
                     // apend the anchor to the body
                     // of course you can append it almost to any other dom element
-                    document.getElementsByTagName('body')[0].appendChild(movieLink);
-
-                    //document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+desiredText+'</a>';
+                
+                    document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
             };
         });
 };
