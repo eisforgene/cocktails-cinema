@@ -1,7 +1,16 @@
-
 let liquorChoice = document.getElementById('answer-buttons');
+document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
+    console.log(event);
+
+    if (event.target.matches('img')) {
+        // alert('image clicked');
+        
+        movieSearch();
+    }
+})
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
+
 
 function liquorSelection(event) {
     event.preventDefault();
@@ -44,6 +53,7 @@ function getCocktails(urlString) { //call function with urlString as parameter f
 
 function selectCocktail() { // select cocktails -- do stuff
     let cocktailChoice = document.getElementById('.cocktail-card');
+
     cocktailChoice.addEventListener('click', movieSearch())
 };
 
@@ -56,7 +66,7 @@ function displayMovie() {
 // };
 //Function to build out movie selection
 
-// function movieSearch() {
+function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
@@ -69,12 +79,12 @@ function displayMovie() {
                 let movieCard = document.createElement("div");
                 movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
                 
-                let header = document.createElement('h2');
+                let header = document.createElement('h3');
                 header.textContent = movieData.Search[i].Title;
 
                 movieCard.appendChild(header);
 
-                document.querySelector('.movie-text').appendChild(movieCard);
+                document.querySelector('#movie-header').appendChild(movieCard);
                 
                 // movieCard.appendChild(img);
 
@@ -83,8 +93,8 @@ function displayMovie() {
                 //movieImg.setAttribute = // alt
             };
         });
+};
 
-// };
 
 // function movieChoice() {
 //     document.querySelectorAll(".movie-btn", el.click()); //calls movie image 
