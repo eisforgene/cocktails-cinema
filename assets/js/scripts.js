@@ -50,6 +50,7 @@ function getCocktails(urlString, drinkType) { //call function with urlString as 
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
+                img.setAttribute('class', 'img');
 
                 cocktailCard.appendChild(header);
                 cocktailCard.appendChild(img);

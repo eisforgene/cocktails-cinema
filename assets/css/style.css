@@ -77,7 +77,10 @@
   font-size: 3rem;
 }
 
-
+.img:hover {
+  border: 1px solid red;
+  border-radius: 0px;
+}
 /* movie styling  */
 .movie-container {
   margin: auto;
