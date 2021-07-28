@@ -31,7 +31,12 @@ function getCocktails(urlString) { //call function with urlString as parameter f
             document.querySelector('#cocktail-answer').innerHTML = '';
 
             for (let i = 0; i < 3; i++) {
-                const cocktails = result.drinks[i];
+
+                let array = result.drinks
+                let randomIndex = Math.floor(Math.random()*array.length)
+
+                const cocktails = result.drinks[randomIndex];
+
                 const cocktailCard = document.createElement('div');
                 cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
 
