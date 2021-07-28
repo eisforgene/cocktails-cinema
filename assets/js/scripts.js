@@ -1,31 +1,21 @@
 let liquorChoice = document.getElementById('answer-buttons');
+
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
+   
     console.log(event);
 
     if (event.target.matches('img')) {
         // alert('image clicked');
-        
         movieSearch();
     }
 })
 
-document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
-    console.log(event);
-
-    if (event.target.matches('img')) {
-        // alert('image clicked');
-
-        movieSearch()
-    }
-});
-
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
-
 
 function liquorSelection(event) {
     event.preventDefault();
     console.log(event.target.value); // target value within the button
-    const liquorAnswer = event.target.value; // store value in const variable
+    const liquorAnswer = event.target .value; // store value in const variable
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString); // invoke/call function with urlString as a parameter/argument
 }
@@ -37,7 +27,6 @@ function getCocktails(urlString) { //call function with urlString as parameter f
         })
         .then(function (result) {
             console.log(result.drinks);
-
 
             document.querySelector('#cocktail-answer').innerHTML = '';
 
@@ -77,11 +66,6 @@ function displayMovie() {
 //Function to build out movie selection
 
 function movieSearch() {
-    //     let searchMovie = [whiskey,]
-    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=whiskey`)
-
-
-function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
       
         //change s=action to s=${liquorSelection}
@@ -89,27 +73,6 @@ function movieSearch() {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
-      
-            for (var i = 0; i < 6; i++); {
-
-
-                console.log(movieData.Search[i].Title);
-                let randomIndex = Math.floor(Math.random()*10);
-                document.getElementById("movie-header").textContent = movieData.Search[randomIndex].Title;
-                let movieCard = document.createElement("div");
-
-                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
-                let header = document.createElement('h2');
-
-                let movieTitle = movieData.Search[i].Title;
-
-
-                let movieImg = document.createElement('movieImg');
-                //movieImg.setAttribute = //src 
-                //movieImg.setAttribute = // alt
-             };
-        });
-};
 
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
@@ -124,7 +87,7 @@ function movieSearch() {
 
                 movieCard.appendChild(header);
 
-                document.querySelector('#movie-header').appendChild(movieCard);
+                document.querySelector('#movie-title').appendChild(movieCard);
                 
                 // movieCard.appendChild(img);
 
