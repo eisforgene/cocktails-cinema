@@ -14,8 +14,13 @@
 
 <body>
     <nav class="navbar navbar-dark bg-primary text-center p-3">
-        <h1 class="h1 text-white m-auto">Cocktails and Cinema</h1>
-        <h2 class="h5">Hello, and welcome to your new way to choose a movie. We provide you with choices in liquor. You choose your liquor, then we give you three cocktail selections. You pick one of the three and we give you a movie to watch.  You can rent of buy the movie on Amazon with the provided link.  </h2>
+        <h1 class="h1 text-white m-auto">Cocktails & Cinema</h1>
+        <h2 class="h5">Hello, and welcome to a fun way of picking your movie.</h2>
+            <h4 class="h4">
+            Step 1. Click on a spirit you're in the mood for. <br>
+            Step 2. Select one of the three suggested cocktails. <br> 
+            Step 3. Receive your random movie suggestion based on your drink of choice!
+            </h4>   
     </nav>
 
     <main class="container">
@@ -34,10 +39,21 @@
             </div>
             <div class="ls-container">
                 <div id="liquor-selection">
-                    <div class="container-text" id="question">Previous Selections:</div>
+                    <div class="ls-text" id="question">
+                        <h5 class="ls-text">Previous Selections</h5>
+                            <ul>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                            </ul>
+                           
+
+                    </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div> 
         <div class="cocktail-container">
             <div id="cocktail-selection">
@@ -47,14 +63,10 @@
         </div>
        </div>
 
-        <button onClick="window.location.reload()" class="restart-btn">Restart</button>
-
-        </div>
-
         <div class="movie-container">
             <div id="movie-title">
                 <div class="movie-container" id="question">
-                    <h2>Here's your perfect movie</h2>
+                    <h2>Here's a movie based on your choice!</h2>
                     <div id="movieCat" class="movie-text">
                     </div>
                     <div id="movie-link">
@@ -63,15 +75,18 @@
                 </div>
                 <div class="altrnative" id="alternative"></div>
             </div>
+            <button onClick="window.location.reload()" class="restart-btn">Restart</button>
         </div>
+        
 
     </main>
 
-    <footer>
-        &copy; An app created by Eugene, Megan, Matt and Richie.<br>
 
-        Data provided by OMDB API and The CoctailDB API
+    <footer class="footer">
+        &copy; An app created by Eugene, Megan, Matt and Richie.
+
     </footer>
+ 
 
     <script src="./assets/js/scripts.js"></script>
 
