@@ -1,7 +1,6 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
-let cocktailDisplay = document.getElementById(''); 
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
@@ -20,6 +19,7 @@ liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection
 function liquorSelection(event) {
     event.preventDefault();
     console.log(event.target.value); // target value within the button
+
     const liquorAnswer = event.target.value; // store value in const variable
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
@@ -34,6 +34,8 @@ function liquorSelection(event) {
         movieCat = "Sci-fi"
     }
     // movieSearch();
+
+
 };
 
 
@@ -95,7 +97,10 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
 function selectCocktail() { // select cocktails -- do stuff
     var cocktailChoice = document.getElementById('.cocktail-card');
 
-    cocktailChoice.addEventListener('click', movieSearch())
+    cocktailChoice.addEventListener('click', movieSearch());
+    var cocktailChoice = document.querySelector('.cocktail-card');
+
+
 };
 
 function movieSearch() {
