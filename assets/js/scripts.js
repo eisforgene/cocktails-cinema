@@ -1,4 +1,8 @@
 let liquorChoice = document.getElementById('answer-buttons');
+let moviesIndex = [
+    "action", "comedy", "drama", "sci-fi"
+]
+let movieCat = ""
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
    
@@ -18,9 +22,21 @@ function liquorSelection(event) {
     const liquorAnswer = event.target.value; // store value in const variable
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
-}
 
-function getCocktails(urlString, drinkType) { //call function with urlString as parameter from liquorSelection();
+    if(liquorAnswer == "whiskey"){
+        movieCat = "action"
+    }else if(liquorAnswer == "tequila") {
+        movieCat = "comedy"
+    }else if(liquorAnswer == "vodka") {
+        movieCat = "drama"
+    }else if(liquorAnswer == "sci-fi") {
+        movieCat = "sci-fi"
+    }
+    // movieSearch();
+};
+
+
+function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
         .then(function (result) {
             return result.json();
@@ -75,48 +91,44 @@ function selectCocktail() { // select cocktails -- do stuff
     cocktailChoice.addEventListener('click', movieSearch())
 };
 
-function displayMovie() {
-    main
-}
-
-// function selectAnswer() {
-//     console.log('Whiskey');
-// };
-//Function to build out movie selection
-
 function movieSearch() {
-    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
+    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
       
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
+            let movieEle = document.getElementById("movie-link")
+            let movieTitle = document.getElementById("movieCat")
+            movieTitle.innerHTML = `<h3>${movieData.Search[0].Title}</h3><p>${movieCat}</p>`
+            movieEle.innerHTML = `<img src="${movieData.Search[0].Poster}"/>`
 
-            for (var i = 0; i <= 0; i++) {
-                console.log(movieData.Search[i].Title);
+            // for (var i = 0; i <= 0; i++) {
+            //     console.log(movieData.Search[i].Title);
                 
-                let randomIndex = Math.floor(Math.random()*10) // floor is to round down
+            //     let randomIndex = Math.floor(Math.random()*10) // floor is to round down
 
-                let movieCard = document.createElement("div");
-                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+            //     let movieCard = document.createElement("div");
                 
-                let header = document.createElement('h3'); //sets the movie title on page 
-                header.textContent = movieData.Search[randomIndex].Title;
+            //     movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                
+            //     let header = document.createElement('h3'); //sets the movie title on page 
+            //     header.textContent = movieData.Search[randomIndex].Title;
 
-                movieCard.appendChild(header);
+            //     movieCard.appendChild(header);
 
-                document.querySelector('#movie-title').appendChild(movieCard);
+            //     document.querySelector('#movie-title').appendChild(movieCard);
                 
-                var desiredLink = href="https://www.amazon.com";
-                let a = document.createElement('movie-link');
-                    a.setAttribute('href', desiredLink);
-                    a.innerHTML = "Your Perfect Movie";
-                    // apend the anchor to the body
-                    // of course you can append it almost to any other dom element
+            //     var desiredLink = href="https://www.amazon.com";
+            //     let a = document.createElement('movie-link');
+            //         a.setAttribute('href', desiredLink);
+            //         a.innerHTML = "Your Perfect Movie";
+            //         // apend the anchor to the body
+            //         // of course you can append it almost to any other dom element
                 
-                    document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
-            };
+            //         document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
+            // };
         });
 };
 
