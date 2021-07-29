@@ -1,9 +1,14 @@
 
 let liquorChoice = document.getElementById('answer-buttons');
+let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
+let movieCat = ""
+
 
 document.querySelector('#cocktail-answer').addEventListener('click', function (event) {
 
     console.log(event);
+    let title = this.getAttribute("data-title")
+    console.log(this)
 
     if (event.target.matches('img')) {
         // alert('image clicked');
@@ -19,9 +24,21 @@ function liquorSelection(event) {
     const liquorAnswer = event.target.value; // store value in const variable
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
-}
 
-function getCocktails(urlString, drinkType) { //call function with urlString as parameter from liquorSelection();
+    if(liquorAnswer == "whiskey"){
+        movieCat = "Action"
+    }else if(liquorAnswer == "tequila") {
+        movieCat = "Comedy"
+    }else if(liquorAnswer == "gin") {
+        movieCat = "Drama"
+    }else if(liquorAnswer == "vodka") {
+        movieCat = "Sci-fi"
+    }
+    // movieSearch();
+};
+
+
+function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
         .then(function (result) {
             return result.json();
@@ -38,6 +55,7 @@ function getCocktails(urlString, drinkType) { //call function with urlString as 
                     let randomIndex = Math.floor(Math.random() * array.length)
               
                     var cocktails = result.drinks[randomIndex];
+
                 } else {
                     var cocktails = result.drinks[i]
                 }
@@ -45,19 +63,33 @@ function getCocktails(urlString, drinkType) { //call function with urlString as 
                 const cocktailCard = document.createElement('div');
                 cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
 
+                const cocktailHeader = document.createElement('div');
+                const cocktailImg = document.createElement('div');
+
                 const header = document.createElement('h2');
                 header.textContent = cocktails.strDrink;
+                header.setAttribute('class', 'textTitle');
 
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
-                img.setAttribute('class', 'img');
+                img.setAttribute('class', 'img pointer imgDrink');
+                img.setAttribute("id", i) 
+                img.setAttribute("data-title", cocktails.strDrink)
+                
 
-                cocktailCard.appendChild(header);
-                cocktailCard.appendChild(img);
+                cocktailHeader.appendChild(header);
+                cocktailHeader.setAttribute('class', 'cocktailTitle');
+                cocktailImg.appendChild(img);
+                cocktailImg.setAttribute('class', 'cocktailImg');
+
+                cocktailCard.appendChild(cocktailHeader);
+                cocktailCard.appendChild(cocktailImg);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
+
                 localStorage.setItem(cocktails, 'Drink Choice')
+              
             }
         })
 };
@@ -68,51 +100,33 @@ function selectCocktail() { // select cocktails -- do stuff
     cocktailChoice.addEventListener('click', movieSearch())
 };
 
-function displayMovie() {
-    main
-}
-
-// function selectAnswer() {
-//     console.log('Whiskey');
-// };
-//Function to build out movie selection
-
 function movieSearch() {
-    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=action`)
-
+    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
+    
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
-
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
 
-                var randomIndex = Math.floor(Math.random() * 10); // floor is to round down
+                let randomIndex = Math.floor(Math.random() * 10); // floor is to round down
+              
+                let movieCard = document.createElement("div");
+                movieCard.setAttribute('class', 'movie-card'); //sets attribute for movie 
+                
+                let movieEle = document.getElementById("movie-link")
+                let movieTitle = document.getElementById("movieCat")
 
-                var movieCard = document.createElement("div");
-                movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
+                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
-                var header = document.createElement('h3'); //sets the movie title on page 
-                header.textContent = movieData.Search[randomIndex].Title;
-
-                movieCard.appendChild(header);
-
-                document.querySelector('#movie-title').appendChild(movieCard);
-
-                var desiredLink = href = "https://www.amazon.com";
-                var a = document.createElement('movie-link');
-                a.setAttribute('href', desiredLink);
-                a.innerHTML = "Your Perfect Movie";
-                // apend the anchor to the body
-                // of course you can append it almost to any other dom element
-
-                document.getElementsByTagName('h4')[0].innerHTML += '<a href="' + desiredLink + '">' + `Rent or Buy the movie here on Amazon` + '</a>';
                 localStorage.setItem(header, "Movie Choice")
             };
         });
 };
+
 // local storage 
 
 // function lastChoice(){
@@ -122,15 +136,4 @@ function movieSearch() {
 //     JSON.parse(localStorage.getItem())
 // };
 //lastChoice()
-
-    //WTF is going on
-
-// Eugene Notes for to-do:
-// make pictures into buttons (event listener --> direct choice to produce random movie image
-// prevent clicking other buttons after clicking one to prevent more images showing
-// hiding container by using a callback function after the appropriate section
-
-// breaksize for images
-// center titles
-// basic styling: hover on cocktail card, transition? 
 
