@@ -2,8 +2,6 @@ let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 
-
-
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
     console.log(event);
@@ -36,10 +34,12 @@ function liquorSelection(event) {
         movieCat = "Sci-fi"
     }
     // movieSearch();
-
+    localStorage.setItem("liquor choice", JSON.stringify(liquorAnswer))
 
 };
-
+function previousSelections(){
+    
+}
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
@@ -90,6 +90,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailHeader);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
+
             }
         })
 };
@@ -129,31 +130,31 @@ function movieSearch() {
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`   
            
-                localStorage.setItem(header, "Movie Choice");
+                localStorage.setItem("Movie Choice", JSON.stringify(movieData.Search[i].Title));
 
                 let info = {
                     Title: movieTitle,
                     Genre: movieCat
                 }
                
-                var elem = window.localStorage.setItem('Title', JSON.stringify(info)) || []
+                //var elem = window.localStorage.setItem('Title', JSON.stringify(info)) || []
                            
-                console.log(elem);
+                //console.log(elem);
             };
 
         });
 };
-document.getElementById("movie-link").addEventListener("click", clickableImg);
-
+document.getElementById("movie-link").addEventListener("click", clickableImg); //allows for the image to send to amazon 
+function clickableImg(){
+    window.open('https://www.amazon.com/s?k=' );
+};
 
 // function displayHistory() {
 //     let movieHead = document.getElementById('movieHead');
 //     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieHead)) || []
 //     console.log(previousTitle);
+// };
 
-function clickableImg(){
-    window.open('https://www.amazon.com/s?k=' );
-};
 
 // local storage 
 
