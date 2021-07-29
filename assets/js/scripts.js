@@ -126,6 +126,9 @@ function movieSearch() {
                 movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`   
            
                 localStorage.setItem("movie", JSON.stringify(movieData.Search[randomIndex].Title));
+
+                var movie = JSON.parse(localStorage.getItem('movie'));
+                document.getElementById('movie-list').innerHTML = movie;
                 
                 console.log(localStorage);
             };
