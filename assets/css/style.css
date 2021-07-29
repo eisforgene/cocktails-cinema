@@ -6,15 +6,16 @@
 .container-text {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   font-size: 4rem;
 }
 
 .restart-btn {
   display: flex;
   justify-content: center;
-  width: 25%;
-  height: auto;
+  width: 10%;
+  height: 50px;
   margin: auto;
   font-size: 2rem;
   background-color: #888;
@@ -62,7 +63,7 @@
 }
 
 .cocktail-card {
-  width: 125%;
+  width: 425px;
   padding: 5px;
   margin: 10px;
   text-align: center;
@@ -73,11 +74,11 @@
   display: grid;
   min-width: auto;
   max-width: 100%;
-  /* margin: 20px 0; */
+  margin: 20px 0;
   justify-content: center;
   /* grid-template-columns: repeat(3, auto); */
   grid-template-columns: auto auto auto;
-  grid-column-gap: 10px;
+  grid-column-gap: 0px;
 }
 
 .cocktail-btn {
