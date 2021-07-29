@@ -1,8 +1,7 @@
 let liquorChoice = document.getElementById('answer-buttons');
-let moviesIndex = [
-    "Action", "Comedy", "Drama", "Sci-Fi"
-]
+let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
+
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
    
@@ -14,6 +13,7 @@ document.querySelector('#cocktail-answer').addEventListener('click', function(ev
         // alert('image clicked');
         movieSearch();
     }
+    
 })
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
@@ -117,7 +117,7 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
-                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre:${movieCat}</p>`
+                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
                 // let header = document.createElement('h3');
@@ -140,16 +140,4 @@ function movieSearch() {
             }
         });
 };
-
-
-    //WTF is going on
-
-// Eugene Notes for to-do:
-// make pictures into buttons (event listener --> direct choice to produce random movie image
-// prevent clicking other buttons after clicking one to prevent more images showing
-// hiding container by using a callback function after the appropriate section
-
-// breaksize for images
-// center titles
-// basic styling: hover on cocktail card, transition? 
 
