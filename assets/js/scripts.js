@@ -131,11 +131,12 @@ function movieSearch() {
             };
         });
 };
-document.getElementById("movie-link").addEventListener("click", clickableImg);
+document.getElementById("movie-link").addEventListener("click", clickableImg); // adding in a clickable image 
 
 function clickableImg(){
     window.open('https://www.amazon.com/s?k=' );
-};
+}; //function using window.open to link to amazon
+
 // local storage 
 
 // function lastChoice(){
