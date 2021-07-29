@@ -31,3 +31,6 @@ API’s Used
 <li> https://www.thecocktaildb.com</li>
 <li>http://www.omdbapi.com </li>
 </ol>
+
+# imgaes 
+<img src="image.png" alt="">
