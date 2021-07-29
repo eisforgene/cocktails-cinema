@@ -12,10 +12,13 @@ The purpose of the app is to provide an easy way to pick a movie using a cocktai
 
 
 # Link
+ 
+<a href="https://eisforgene.github.io/cocktails-cinema/" target="_blank">Deployed link </a>
 
+<a href="https://github.com/eisforgene/cocktails-cinema" target="_blank"> Github Repo </a>
 
 # Installation 
-
+Make sure all assets are accounted for. 
 
 
 # Usage 
