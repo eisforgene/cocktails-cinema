@@ -122,9 +122,8 @@ function movieSearch() {
                 movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
-                localStorage.setItem(header, "Movie Choice")
+                localStorage.setItem(header, "Movie Choice");
 
-                window.open('https:www.amazon.com/s/','_blank')
             };
         });
 };
