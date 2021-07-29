@@ -3,15 +3,14 @@ let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
-
     console.log(event);
-    let title = this.getAttribute("data-title")
-    console.log(this)
+    let title = this.getAttribute("data-title");
+    console.log(this);
 
     if (event.target.matches('img')) {
         // alert('image clicked');
         movieSearch();
-    }
+    };
 });
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
@@ -34,7 +33,8 @@ function liquorSelection(event) {
         movieCat = "Sci-fi"
     }
     // movieSearch();
-    localStorage.setItem("liquor choice", JSON.stringify(liquorAnswer))
+    localStorage.setItem("spirit", JSON.stringify(liquorAnswer))
+    console.log(localStorage);
 
 };
 function previousSelections(){
@@ -90,18 +90,13 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailHeader);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
-
             }
         })
 };
 
 function selectCocktail() { // select cocktails -- do stuff
-    var cocktailChoice = document.getElementById('.cocktail-card');
-
     cocktailChoice.addEventListener('click', movieSearch());
     var cocktailChoice = document.querySelector('.cocktail-card');
-
-
 };
 
 function movieSearch() {
@@ -128,46 +123,12 @@ function movieSearch() {
 
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`   
+                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`   
            
-                localStorage.setItem("Movie Choice", JSON.stringify(movieData.Search[i].Title));
-
-                let info = {
-                    Title: movieTitle,
-                    Genre: movieCat
-                }
-               
-                //var elem = window.localStorage.setItem('Title', JSON.stringify(info)) || []
-                           
-                //console.log(elem);
+                localStorage.setItem("movie", JSON.stringify(movieData.Search[randomIndex].Title));
+                
+                console.log(localStorage);
             };
 
         });
 };
-document.getElementById("movie-link").addEventListener("click", clickableImg); //allows for the image to send to amazon 
-function clickableImg(){
-    window.open('https://www.amazon.com/s?k=' );
-};
-
-// function displayHistory() {
-//     let movieHead = document.getElementById('movieHead');
-//     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieHead)) || []
-//     console.log(previousTitle);
-// };
-
-
-// local storage 
-
-// function lastChoice(){
-//     var lastMovieChoice = localStorage.getItem('Movie Choice');
-//     var lastDrinkChoice = localStorage.getItem('Drink Choice');
-//     JSON.parse(localStorage.getItem('Movie Choice'));
-//     JSON.parse(localStorage.getItem())
-// };
-//lastChoice()
-
-
-//     // for (var i=0; i < previousHistory.length; i++) {
-    
-//     // }
-// };
