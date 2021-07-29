@@ -1,12 +1,14 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = [
-    "action", "comedy", "drama", "sci-fi"
+    "Action", "Comedy", "Drama", "Sci-Fi"
 ]
 let movieCat = ""
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
    
     console.log(event);
+    let title = this.getAttribute("data-title")
+    console.log(this)
 
     if (event.target.matches('img')) {
         // alert('image clicked');
@@ -24,13 +26,13 @@ function liquorSelection(event) {
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
 
     if(liquorAnswer == "whiskey"){
-        movieCat = "action"
+        movieCat = "Action"
     }else if(liquorAnswer == "tequila") {
-        movieCat = "comedy"
+        movieCat = "Comedy"
+    }else if(liquorAnswer == "gin") {
+        movieCat = "Drama"
     }else if(liquorAnswer == "vodka") {
-        movieCat = "drama"
-    }else if(liquorAnswer == "sci-fi") {
-        movieCat = "sci-fi"
+        movieCat = "Sci-fi"
     }
     // movieSearch();
 };
@@ -53,6 +55,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                     let randomIndex = Math.floor(Math.random() * array.length)
               
                     var cocktails = result.drinks[randomIndex];
+
                 } else {
                     var cocktails = result.drinks[i]
                 }
@@ -71,6 +74,9 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
                 img.setAttribute('class', 'img pointer imgDrink');
+                img.setAttribute("id", i) 
+                img.setAttribute("data-title", cocktails.strDrink)
+                
 
                 cocktailHeader.appendChild(header);
                 cocktailHeader.setAttribute('class', 'cocktailTitle');
@@ -81,6 +87,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailImg);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
+                // 
             }
         })
 };
@@ -99,26 +106,27 @@ function movieSearch() {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
-            let movieEle = document.getElementById("movie-link")
-            let movieTitle = document.getElementById("movieCat")
-            movieTitle.innerHTML = `<h3>${movieData.Search[0].Title}</h3><p>${movieCat}</p>`
-            movieEle.innerHTML = `<img src="${movieData.Search[0].Poster}"/>`
-
-            // for (var i = 0; i <= 0; i++) {
-            //     console.log(movieData.Search[i].Title);
+            for (var i = 0; i <= 0; i++) {
+                console.log(movieData.Search[i].Title);
                 
-            //     let randomIndex = Math.floor(Math.random()*10) // floor is to round down
+                let randomIndex = Math.floor(Math.random()*10) // floor is to round down
 
-            //     let movieCard = document.createElement("div");
+                let movieCard = document.createElement("div");
+                movieCard.setAttribute('class', 'movie-card'); //sets attribute for movie 
                 
-            //     movieCard.setAttribute('class', 'movie-card'); //sets attrubut for movie 
+                let movieEle = document.getElementById("movie-link")
+                let movieTitle = document.getElementById("movieCat")
+
+                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre:${movieCat}</p>`
+                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
+
+                // let header = document.createElement('h3');
+                // header.textContent = movieData.Search[randomIndex].Title;
+
+                // movieCard.appendChild(header);
+
+                // document.querySelector('#movie-title').appendChild(movieCard);
                 
-            //     let header = document.createElement('h3'); //sets the movie title on page 
-            //     header.textContent = movieData.Search[randomIndex].Title;
-
-            //     movieCard.appendChild(header);
-
-            //     document.querySelector('#movie-title').appendChild(movieCard);
                 
             //     var desiredLink = href="https://www.amazon.com";
             //     let a = document.createElement('movie-link');
@@ -129,8 +137,10 @@ function movieSearch() {
                 
             //         document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
             // };
+            }
         });
 };
+
 
     //WTF is going on
 

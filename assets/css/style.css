@@ -117,11 +117,14 @@
 
 /* movie styling  */
 .movie-container {
-  margin: auto;
   width: 100%;
   padding: 25px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 4rem;
 }
 
 .movie-btn-grid {
