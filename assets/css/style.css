@@ -19,11 +19,12 @@ body {
 }
 
 nav {
-  background: #F5F5F5;
+  background: rgb(213, 244, 230);
   color: black;
   text-align: center;
   height: 300px;
-  filter: brightness(.97);
+  filter: brightness(1);
+  opacity: .6;
 }
 
 h2 {
@@ -32,13 +33,14 @@ h2 {
 
 .footer {
   position: fixed;
-  background: #F5F5F5;
+  background: rgb(213, 244, 230);
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   color: black;
   filter: brightness(.97);
+  opacity: .6;
 }
 
 .container-text {
@@ -104,8 +106,7 @@ h2 {
 }
 
 .highlight:hover {
-  border: 1px solid red;
-  color: red;
+  border: 1px solid black;
   border-radius: 5px;
   background: #F5F5DC;
 }
@@ -146,7 +147,7 @@ h2 {
 }
 
 .img:hover {
-  border: 1px solid red;
+  border: 2px dashed black;
   border-radius: 0px;
   box-shadow: 10px 10px 5px grey;
 }
