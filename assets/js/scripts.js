@@ -126,34 +126,27 @@ function movieSearch() {
                 let movieTitle = document.getElementById("movieCat")
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
-                
-                let storeMovie = window.localStorage.setItem('Title', JSON.stringify(movieData.Search[randomIndex].Title))
+                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`   
 
-                // let movieList = document.getElementById('movie-list');
-                // let previousHistory = JSON.parse(localStorage.getItem(movieData.Search[randomIndex].Title)) || []
-
-                console.log(storeMovie);
+                let info = {
+                    Title: movieTitle,
+                    Genre: movieCat
+                }
+               
+                var elem = window.localStorage.setItem('Title', JSON.stringify(info)) || []
+                           
+                console.log(elem);
             };
+
         });
 };
 
-// local storage 
+// function displayHistory() {
+//     let movieHead = document.getElementById('movieHead');
+//     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieHead)) || []
+//     console.log(previousTitle);
 
-
-// function displayHistory(movieTitle) {
-//     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieTitle)) || []
-//     var html = "";
-//     for (var i=0; i < previousHistory.length; i++) {
-//         html+=`<h6>${previousHistory[i]}</h6>`
-//     }
-//     $("#previousSearch").html(html)
-// }
-
-//  $("#previousSearch").on("click",".previous",function() {
-//     var city = $(this).text()
-//     console.log(city)
-//     forecast(city)
-// });
-
-// displayHistory();
+//     // for (var i=0; i < previousHistory.length; i++) {
+    
+//     // }
+// };
