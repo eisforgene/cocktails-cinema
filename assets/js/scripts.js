@@ -126,11 +126,11 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
+                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
+                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
+                      
+                localStorage.setItem(header, "Movie Choice");
 
-                movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`   
-           
-                localStorage.setItem("Movie Choice", JSON.stringify(movieData.Search[i].Title));
 
                 let info = {
                     Title: movieTitle,
