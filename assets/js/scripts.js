@@ -2,6 +2,8 @@ let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 
+
+
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
     console.log(event);
@@ -74,7 +76,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
-                img.setAttribute('class', 'img pointer imgDrink');
+                img.setAttribute('class', 'img cursor imgDrink');
                 img.setAttribute("id", i) 
                 img.setAttribute("data-title", cocktails.strDrink)
                 
@@ -88,8 +90,6 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailHeader);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
-
-                // localStorage.setItem(cocktails, 'Drink Choice')
             }
         })
 };
@@ -111,6 +111,9 @@ function movieSearch() {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
+
+           
+
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
 
@@ -122,20 +125,36 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
+
                 movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
-            
+                      
                 localStorage.setItem(header, "Movie Choice");
 
-
+                let info = {
+                    Title: movieTitle,
+                    Genre: movieCat
+                }
+               
+                var elem = window.localStorage.setItem('Title', JSON.stringify(info)) || []
+                           
+                console.log(elem);
             };
+
         });
 };
 document.getElementById("movie-link").addEventListener("click", clickableImg);
 
+
+// function displayHistory() {
+//     let movieHead = document.getElementById('movieHead');
+//     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieHead)) || []
+//     console.log(previousTitle);
+
 function clickableImg(){
     window.open('https://www.amazon.com/s?k=' );
 };
+
 // local storage 
 
 // function lastChoice(){
@@ -146,3 +165,8 @@ function clickableImg(){
 // };
 //lastChoice()
 
+
+//     // for (var i=0; i < previousHistory.length; i++) {
+    
+//     // }
+// };
