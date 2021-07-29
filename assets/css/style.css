@@ -54,20 +54,30 @@
 
 /* cocktail styling */
 .cocktail-container {
-  margin: auto;
+  /* margin: auto; */
   width: 100%;
-  padding: 25px;
+  /* padding: 25px; */
   display: flex;
   justify-content: center;
 }
 
+.cocktail-card {
+  width: 125%;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  /* height: 30vh; */
+}
+
 .cocktail-btn-grid {
   display: grid;
-  width: auto;
-  gap: 10px;
-  margin: 20px 0;
+  min-width: auto;
+  max-width: 100%;
+  /* margin: 20px 0; */
   justify-content: center;
-  grid-template-columns: repeat(3, auto);
+  /* grid-template-columns: repeat(3, auto); */
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 10px;
 }
 
 .cocktail-btn {
@@ -80,7 +90,30 @@
 .img:hover {
   border: 1px solid red;
   border-radius: 0px;
+  box-shadow: 10px 10px 5px grey;
 }
+
+.textTitle {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  /* font-size: 2vh; */
+}
+
+.cocktailTitle {
+  max-height: 30%;
+  display: inline-block;
+  max-width: 500px;
+  /* word-break: break-all; */
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.cocktailImg {
+  max-height: 80%;
+  justify-content: center;
+  /* text-align: center; */
+}
+
 /* movie styling  */
 .movie-container {
   margin: auto;
@@ -106,6 +139,13 @@
   font-size: 3rem;
 }
 
+.imgDrink {
+  width:300px;
+  height: 300px;
+  max-width: 95%;
+  margin: 10px;
+  padding: 10px;
+}
 
 /*
 * Skeleton V2.0.4

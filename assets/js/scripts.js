@@ -44,16 +44,25 @@ function getCocktails(urlString, drinkType) { //call function with urlString as 
                 const cocktailCard = document.createElement('div');
                 cocktailCard.setAttribute('class', 'cocktail-card'); // (attribute, value)
 
+                const cocktailHeader = document.createElement('div');
+                const cocktailImg = document.createElement('div');
+
                 const header = document.createElement('h2');
                 header.textContent = cocktails.strDrink;
+                header.setAttribute('class', 'textTitle');
 
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
-                img.setAttribute('class', 'img');
+                img.setAttribute('class', 'img pointer imgDrink');
 
-                cocktailCard.appendChild(header);
-                cocktailCard.appendChild(img);
+                cocktailHeader.appendChild(header);
+                cocktailHeader.setAttribute('class', 'cocktailTitle');
+                cocktailImg.appendChild(img);
+                cocktailImg.setAttribute('class', 'cocktailImg');
+
+                cocktailCard.appendChild(cocktailHeader);
+                cocktailCard.appendChild(cocktailImg);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
             }
