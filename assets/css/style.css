@@ -1,20 +1,38 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
   justify-content: center;
-  background-color: #d5f4e6;
+  background-color: #F5F5F5;
 }
+
 nav {
-  background-color: #618685 ;
-  color: white;
+  background: #F5F5F5;
+  color: black;
   text-align: center;
+  height: 300px;
+  filter: brightness(.97);
 }
+
 h2 {
   font-size: xx-small;
 }
+
+.footer {
+  position: fixed;
+  background: #F5F5F5;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: black;
+  filter: brightness(.97);
+}
+
 .container-text {
   display: flex;
   justify-content: center;

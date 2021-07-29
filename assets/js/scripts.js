@@ -1,10 +1,9 @@
-
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
+let cocktailDisplay = document.getElementById(''); 
 
-
-document.querySelector('#cocktail-answer').addEventListener('click', function (event) {
+document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
     console.log(event);
     let title = this.getAttribute("data-title")
@@ -83,13 +82,12 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailImg.appendChild(img);
                 cocktailImg.setAttribute('class', 'cocktailImg');
 
-                cocktailCard.appendChild(cocktailHeader);
                 cocktailCard.appendChild(cocktailImg);
+                cocktailCard.appendChild(cocktailHeader);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
 
-                localStorage.setItem(cocktails, 'Drink Choice')
-              
+                // localStorage.setItem(cocktails, 'Drink Choice')
             }
         })
 };
@@ -121,8 +119,7 @@ function movieSearch() {
 
                 movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
-
-                localStorage.setItem(header, "Movie Choice")
+                // localStorage.setItem(header, "Movie Choice")
             };
         });
 };
