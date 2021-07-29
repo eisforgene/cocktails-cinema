@@ -20,24 +20,32 @@
 
     <main class="container">
         <!-- create class container -->
-        <div class="liquor-container">
-            <div id="liquor-selection">
-                <div class="container-text" id="question">Pick your spirit</div>
-                <div id="answer-buttons" class="liquor-btn-grid">
-                    <button class="liquor-btn button highlight" value="whiskey">Whiskey</button>
-                    <button class="liquor-btn button highlight" value="tequila">Tequila</button>
-                    <button class="liquor-btn button highlight" value="gin">Gin</button>
-                    <button class="liquor-btn button highlight" value="vodka">Vodka</button>
+        <div class="first-section">
+            <div class="liquor-container">
+                <div id="liquor-selection">
+                    <div class="container-text" id="question">Pick your spirit</div>
+                    <div id="answer-buttons" class="liquor-btn-grid">
+                        <button class="liquor-btn button highlight" value="whiskey">Whiskey</button>
+                        <button class="liquor-btn button highlight" value="tequila">Tequila</button>
+                        <button class="liquor-btn button highlight" value="gin">Gin</button>
+                        <button class="liquor-btn button highlight" value="vodka">Vodka</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
+            <div class="ls-container">
+                <div id="liquor-selection">
+                    <div class="container-text" id="question">Previous Selections:</div>
+                    </div>
+                </div>
+            </div>
+        </div> 
         <div class="cocktail-container">
             <div id="cocktail-selection">
                 <div class="container-text" id="question">Pick your cocktail</div>
                 <div id="cocktail-answer" class="cocktail-btn-grid"></div>
             </div>
         </div>
+       </div>
 
         <button onClick="window.location.reload()" class="restart-btn">Restart</button>
 
@@ -45,21 +53,26 @@
 
         <div class="movie-container">
             <div id="movie-title">
-                <div class="container-text" id="question">Here's your perfect movie
-                    <div class="movie-text"> </div>
-                    <div id="movie-link"></div>
-                    <h4></h4>
+                <div class="movie-container" id="question">
+                    <h2>Here's your perfect movie</h2>
+                    <div id="movieCat" class="movie-text">
+                    </div>
+                    <div id="movie-link">
+                    </div>
                 </div>
-
+                <div class="altrnative" id="alternative"></div>
             </div>
         </div>
-        </div>
+
     </main>
+
     <footer>
         An app created by Eugene, Megan, Matt and Richie.
         Data provided by OMDB API and The CoctailDB API
     </footer>
+
     <script src="./assets/js/scripts.js"></script>
+
 </body>
 
 </html>
