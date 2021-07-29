@@ -23,4 +23,8 @@ The app is used to create an easy way to choose a movie.
 
 
 # Credits 
-API’s 
+API’s Used 
+<ol>
+<li> https://www.thecocktaildb.com</li>
+<li>http://www.omdbapi.com </li>
+</ol>
