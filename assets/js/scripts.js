@@ -125,8 +125,11 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
+
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`   
+           
+                localStorage.setItem(header, "Movie Choice");
 
                 let info = {
                     Title: movieTitle,
@@ -140,11 +143,28 @@ function movieSearch() {
 
         });
 };
+document.getElementById("movie-link").addEventListener("click", clickableImg);
+
 
 // function displayHistory() {
 //     let movieHead = document.getElementById('movieHead');
 //     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieHead)) || []
 //     console.log(previousTitle);
+
+function clickableImg(){
+    window.open('https://www.amazon.com/s?k=' );
+};
+
+// local storage 
+
+// function lastChoice(){
+//     var lastMovieChoice = localStorage.getItem('Movie Choice');
+//     var lastDrinkChoice = localStorage.getItem('Drink Choice');
+//     JSON.parse(localStorage.getItem('Movie Choice'));
+//     JSON.parse(localStorage.getItem())
+// };
+//lastChoice()
+
 
 //     // for (var i=0; i < previousHistory.length; i++) {
     
