@@ -1,9 +1,8 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
-let previousHistory = JSON.parse(localStorage.getItem('movieHead')) || []
 
-displayHistory(); 
+
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
@@ -91,8 +90,6 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailHeader);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
-
-                // localStorage.setItem(cocktails, 'Drink Choice')
             }
         })
 };
@@ -130,30 +127,33 @@ function movieSearch() {
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
+                
+                let storeMovie = window.localStorage.setItem('Title', JSON.stringify(movieData.Search[randomIndex].Title))
 
-                if(previousHistory.indexOf(movieTitle) === -1) {
-                    previousHistory.push(movieTitle)
-                    localStorage.setItem('movieHead', JSON.stringify(previousHistory))
-                    displayHistory();
-                }
+                // let movieList = document.getElementById('movie-list');
+                // let previousHistory = JSON.parse(localStorage.getItem(movieData.Search[randomIndex].Title)) || []
+
+                console.log(storeMovie);
             };
         });
 };
 
 // local storage 
 
-function displayHistory() {
-    var previousHistory = JSON.parse(localStorage.getItem("movieHead")) || []
-    var html = "";
-    for (var i=0; i < previousHistory.length; i++) {
-        html+=`<h6>${previousHistory[i]}</h6>`
-    }
-    $("#previousSearch").html(html)
-}
 
-   
- $("#previousSearch").on("click",".previous",function() {
-    var city = $(this).text()
-    console.log(city)
-    forecast(city)
-});
+// function displayHistory(movieTitle) {
+//     var previousTitle = window.localStorage.setItem('Title', JSON.stringify(movieTitle)) || []
+//     var html = "";
+//     for (var i=0; i < previousHistory.length; i++) {
+//         html+=`<h6>${previousHistory[i]}</h6>`
+//     }
+//     $("#previousSearch").html(html)
+// }
+
+//  $("#previousSearch").on("click",".previous",function() {
+//     var city = $(this).text()
+//     console.log(city)
+//     forecast(city)
+// });
+
+// displayHistory();
