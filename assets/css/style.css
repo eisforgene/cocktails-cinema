@@ -150,6 +150,7 @@ h2 {
   border: 2px dashed black;
   border-radius: 0px;
   box-shadow: 10px 10px 5px grey;
+  cursor: pointer;
 }
 
 .textTitle {

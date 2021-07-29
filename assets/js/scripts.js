@@ -1,6 +1,9 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
+let previousHistory = JSON.parse(localStorage.getItem('movieHead')) || []
+
+displayHistory(); 
 
 document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
 
@@ -74,7 +77,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 const img = document.createElement('img');
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
-                img.setAttribute('class', 'img pointer imgDrink');
+                img.setAttribute('class', 'img cursor imgDrink');
                 img.setAttribute("id", i) 
                 img.setAttribute("data-title", cocktails.strDrink)
                 
@@ -111,6 +114,9 @@ function movieSearch() {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
+
+           
+
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
 
@@ -122,24 +128,32 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
-                movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
+                movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
-
-                localStorage.setItem(header, "Movie Choice");
-
-
+                if(previousHistory.indexOf(movieTitle) === -1) {
+                    previousHistory.push(movieTitle)
+                    localStorage.setItem('movieHead', JSON.stringify(previousHistory))
+                    displayHistory();
+                }
             };
         });
 };
 
 // local storage 
 
-// function lastChoice(){
-//     var lastMovieChoice = localStorage.getItem('Movie Choice');
-//     var lastDrinkChoice = localStorage.getItem('Drink Choice');
-//     JSON.parse(localStorage.getItem('Movie Choice'));
-//     JSON.parse(localStorage.getItem())
-// };
-//lastChoice()
+function displayHistory() {
+    var previousHistory = JSON.parse(localStorage.getItem("movieHead")) || []
+    var html = "";
+    for (var i=0; i < previousHistory.length; i++) {
+        html+=`<h6>${previousHistory[i]}</h6>`
+    }
+    $("#previousSearch").html(html)
+}
 
+   
+ $("#previousSearch").on("click",".previous",function() {
+    var city = $(this).text()
+    console.log(city)
+    forecast(city)
+});
