@@ -123,6 +123,8 @@ function movieSearch() {
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
                 localStorage.setItem(header, "Movie Choice")
+
+                window.open('https:www.amazon.com/s/','_blank')
             };
         });
 };
