@@ -1,10 +1,11 @@
+
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 
 
-document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
-   
+document.querySelector('#cocktail-answer').addEventListener('click', function (event) {
+
     console.log(event);
     let title = this.getAttribute("data-title")
     console.log(this)
@@ -13,8 +14,7 @@ document.querySelector('#cocktail-answer').addEventListener('click', function(ev
         // alert('image clicked');
         movieSearch();
     }
-    
-})
+});
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
 
@@ -87,20 +87,22 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 cocktailCard.appendChild(cocktailImg);
 
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
-                // 
+
+                localStorage.setItem(cocktails, 'Drink Choice')
+              
             }
         })
 };
 
 function selectCocktail() { // select cocktails -- do stuff
-    let cocktailChoice = document.getElementById('.cocktail-card');
+    var cocktailChoice = document.getElementById('.cocktail-card');
 
     cocktailChoice.addEventListener('click', movieSearch())
 };
 
 function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
-      
+    
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
@@ -108,9 +110,9 @@ function movieSearch() {
             console.log(movieData);
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
-                
-                let randomIndex = Math.floor(Math.random()*10) // floor is to round down
 
+                let randomIndex = Math.floor(Math.random() * 10); // floor is to round down
+              
                 let movieCard = document.createElement("div");
                 movieCard.setAttribute('class', 'movie-card'); //sets attribute for movie 
                 
@@ -120,24 +122,18 @@ function movieSearch() {
                 movieTitle.innerHTML = `<h4>${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<img src="${movieData.Search[randomIndex].Poster}"/>`
 
-                // let header = document.createElement('h3');
-                // header.textContent = movieData.Search[randomIndex].Title;
-
-                // movieCard.appendChild(header);
-
-                // document.querySelector('#movie-title').appendChild(movieCard);
-                
-                
-            //     var desiredLink = href="https://www.amazon.com";
-            //     let a = document.createElement('movie-link');
-            //         a.setAttribute('href', desiredLink);
-            //         a.innerHTML = "Your Perfect Movie";
-            //         // apend the anchor to the body
-            //         // of course you can append it almost to any other dom element
-                
-            //         document.getElementsByTagName('body')[0].innerHTML += '<a href="'+desiredLink+'">'+ `Your Perfect Movie` + '</a>';
-            // };
-            }
+                localStorage.setItem(header, "Movie Choice")
+            };
         });
 };
+
+// local storage 
+
+// function lastChoice(){
+//     var lastMovieChoice = localStorage.getItem('Movie Choice');
+//     var lastDrinkChoice = localStorage.getItem('Drink Choice');
+//     JSON.parse(localStorage.getItem('Movie Choice'));
+//     JSON.parse(localStorage.getItem())
+// };
+//lastChoice()
 
