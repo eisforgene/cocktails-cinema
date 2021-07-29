@@ -24,7 +24,7 @@ nav {
   text-align: center;
   height: 300px;
   filter: brightness(1);
-  opacity: .6;
+  opacity: .5;
 }
 
 h2 {
@@ -40,7 +40,7 @@ h2 {
   text-align: center;
   color: black;
   filter: brightness(.97);
-  opacity: .6;
+  opacity: .5;
 }
 
 .container-text {
