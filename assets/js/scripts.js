@@ -27,19 +27,19 @@ function liquorSelection(event) {
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
 
-    if (liquorAnswer == "whiskey") {
-        movieCat = "Action"
-    } else if (liquorAnswer == "tequila") {
-        movieCat = "Comedy"
-    } else if (liquorAnswer == "gin") {
-        movieCat = "Drama"
-    } else if (liquorAnswer == "vodka") {
-        movieCat = "Sci-fi"
+    if (liquorAnswer == 'whiskey') {
+        movieCat = 'Action'
+    } else if (liquorAnswer == 'tequila') {
+        movieCat = 'Comedy'
+    } else if (liquorAnswer == 'gin') {
+        movieCat = 'Drama'
+    } else if (liquorAnswer == 'vodka') {
+        movieCat = 'Sci-fi'
     }
     // movieSearch();
-    localStorage.setItem("spirit", JSON.stringify(liquorAnswer))
-    console.log(localStorage);
 
+    previousSpirits.push(liquorAnswer)
+    localStorage.setItem('spirit', JSON.stringify(previousSpirits));
 };
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
@@ -115,7 +115,6 @@ function movieSearch() {
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
-
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
                 movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
 
@@ -134,14 +133,11 @@ function renderPreviousSelections() { // append li item for each element in the 
         listItem.textContent = previousMovies[i];
         document.getElementById('movie-list').appendChild(listItem);
     }
-
+    
     // for (let i = 0; i < previousSpirits.length; i++) { // iterate, evaluate, mutate
     //     console.log(previousSpirits[i]);
     //     const listItem = document.createElement('li');
     //     listItem.textContent = previousSpirits[i];
     //     document.getElementById('spirit-list').appendChild(listItem);
     // }
-
-    console.log(previousMovies);
-    // console.log(previousSpirits);
 }
