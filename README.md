@@ -114,9 +114,8 @@ Utilize everything learned over the weeks to create a real-world front-end appli
 
 
 #### Links
-<a href="https://eisforgene.github.io/cocktails-cinema/" target="_blank">Deployed link </a>
-
-<a href="https://github.com/eisforgene/cocktails-cinema" target="_blank"> Github Repo </a>
+<a href="https://eisforgene.github.io/cocktails-cinema/" target="_blank">Deployed Link </a>
+<a href="https://github.com/eisforgene/cocktails-cinema" target="_blank">Github Repo </a>
 
 
 #### Author:
