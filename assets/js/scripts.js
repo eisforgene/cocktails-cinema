@@ -116,7 +116,7 @@ function movieSearch() {
                 let movieTitle = document.getElementById("movieCat")
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
+                movieEle.innerHTML = `<a href="https://www.amazon.com/s?k=${movieData.Search[randomIndex].Title}"><img src="${movieData.Search[randomIndex].Poster}"/>`
 
                 previousMovies.push(movieData.Search[randomIndex].Title)
                 localStorage.setItem("movie", JSON.stringify(previousMovies));
