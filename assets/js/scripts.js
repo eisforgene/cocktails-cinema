@@ -14,7 +14,7 @@ document.querySelector('#cocktail-answer').addEventListener('click', function (e
     if (event.target.matches('img')) {
         // alert('image clicked');
         movieSearch();
-    };
+    };    
 });
 
 liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
@@ -93,6 +93,8 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
             }
         })
+  
+
 };
 
 function movieSearch() {
@@ -141,3 +143,6 @@ function renderPreviousSelections() { // append li item for each element in the 
     //     document.getElementById('spirit-list').appendChild(listItem);
     // }
 }
+
+
+
