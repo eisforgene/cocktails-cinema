@@ -33,4 +33,4 @@ API’s Used
 </ol>
 
 # imgaes 
-<img src="image.png" alt="">
+<img src="assets/Untitled.jpg" alt="">
