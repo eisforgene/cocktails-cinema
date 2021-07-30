@@ -96,7 +96,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
 };
 
 function movieSearch() {
-    fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
+    fetch(`https://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
 
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
