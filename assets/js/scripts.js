@@ -1,8 +1,12 @@
 let liquorChoice = document.getElementById('answer-buttons');
 let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
+let previousSpirits = JSON.parse(localStorage.getItem('spirit')) || [];
+let previousMovies = JSON.parse(localStorage.getItem('movie')) || [];
 
-document.querySelector('#cocktail-answer').addEventListener('click', function(event) {
+renderPreviousSelections();
+
+document.querySelector('#cocktail-answer').addEventListener('click', function (event) {
     console.log(event);
     let title = this.getAttribute("data-title");
     console.log(this);
@@ -23,13 +27,13 @@ function liquorSelection(event) {
     const urlString = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${liquorAnswer}`; // create API string
     getCocktails(urlString, event.target.value); // invoke/call function with urlString as a parameter/argument
 
-    if(liquorAnswer == "whiskey"){
+    if (liquorAnswer == "whiskey") {
         movieCat = "Action"
-    }else if(liquorAnswer == "tequila") {
+    } else if (liquorAnswer == "tequila") {
         movieCat = "Comedy"
-    }else if(liquorAnswer == "gin") {
+    } else if (liquorAnswer == "gin") {
         movieCat = "Drama"
-    }else if(liquorAnswer == "vodka") {
+    } else if (liquorAnswer == "vodka") {
         movieCat = "Sci-fi"
     }
     // movieSearch();
@@ -37,9 +41,6 @@ function liquorSelection(event) {
     console.log(localStorage);
 
 };
-function previousSelections(){
-    
-}
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
@@ -56,7 +57,7 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 if (drinkType !== 'whiskey') {
                     let array = result.drinks
                     let randomIndex = Math.floor(Math.random() * array.length)
-              
+
                     var cocktails = result.drinks[randomIndex];
 
                 } else {
@@ -77,9 +78,9 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 img.setAttribute('src', cocktails.strDrinkThumb);
                 img.setAttribute('alt', cocktails.strDrink);
                 img.setAttribute('class', 'img cursor imgDrink');
-                img.setAttribute("id", i) 
+                img.setAttribute("id", i)
                 img.setAttribute("data-title", cocktails.strDrink)
-                
+
 
                 cocktailHeader.appendChild(header);
                 cocktailHeader.setAttribute('class', 'cocktailTitle');
@@ -94,44 +95,53 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
         })
 };
 
-function selectCocktail() { // select cocktails -- do stuff
-    cocktailChoice.addEventListener('click', movieSearch());
-    var cocktailChoice = document.querySelector('.cocktail-card');
-};
-
 function movieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=1c8371fd&s=${movieCat}`)
-    
+
         //change s=action to s=${liquorSelection}
         .then(function (movieRes) {
             return movieRes.json();
         }).then(function (movieData) {
             console.log(movieData);
 
-           
-
             for (var i = 0; i <= 0; i++) {
                 console.log(movieData.Search[i].Title);
 
                 let randomIndex = Math.floor(Math.random() * 10); // floor is to round down
-              
+
                 let movieCard = document.createElement("div");
                 movieCard.setAttribute('class', 'movie-card'); //sets attribute for movie 
-                
+
                 let movieEle = document.getElementById("movie-link")
                 let movieTitle = document.getElementById("movieCat")
 
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`   
-           
-                localStorage.setItem("movie", JSON.stringify(movieData.Search[randomIndex].Title));
+                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
 
-                var movie = JSON.parse(localStorage.getItem('movie'));
-                document.getElementById('movie-list').innerHTML = movie;
-                
+                previousMovies.push(movieData.Search[randomIndex].Title)
+                localStorage.setItem("movie", JSON.stringify(previousMovies));
+
                 console.log(localStorage);
             };
-
         });
 };
+
+function renderPreviousSelections() { // append li item for each element in the previousSpirits []
+    for (let i = 0; i < previousMovies.length; i++) {
+        console.log(previousMovies[i]);
+        const listItem = document.createElement('li');
+        listItem.textContent = previousMovies[i];
+        document.getElementById('movie-list').appendChild(listItem);
+    }
+
+    // for (let i = 0; i < previousSpirits.length; i++) { // iterate, evaluate, mutate
+    //     console.log(previousSpirits[i]);
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = previousSpirits[i];
+    //     document.getElementById('spirit-list').appendChild(listItem);
+    // }
+
+    console.log(previousMovies);
+    // console.log(previousSpirits);
+}
