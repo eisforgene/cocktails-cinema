@@ -3,6 +3,7 @@ let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 let previousSpirits = JSON.parse(localStorage.getItem('spirit')) || [];
 let previousMovies = JSON.parse(localStorage.getItem('movie')) || [];
+let liquorContainer = document.getElementById('liquor-container');
 
 renderPreviousSelections();
 
@@ -41,6 +42,18 @@ function liquorSelection(event) {
     previousSpirits.push(liquorAnswer)
     localStorage.setItem('spirit', JSON.stringify(previousSpirits));
 };
+
+liquorChoice.addEventListener('click', hideContainer)
+
+function hideContainer () {
+    if (liquorContainer.style.display !== 'none') {
+        liquorContainer.style.display = 'none';
+    } else { 
+        liquorContainer.style.display = 'block';
+    }
+};
+
+
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
