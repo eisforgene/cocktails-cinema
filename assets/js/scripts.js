@@ -4,6 +4,8 @@ let movieCat = ""
 let previousSpirits = JSON.parse(localStorage.getItem('spirit')) || [];
 let previousMovies = JSON.parse(localStorage.getItem('movie')) || [];
 let liquorContainer = document.getElementById('liquor-container');
+let cocktailContainer = document.getElementById('cocktail-container');
+let movieContainer = document.getElementById('movie-container');
 
 renderPreviousSelections();
 
@@ -18,7 +20,7 @@ document.querySelector('#cocktail-answer').addEventListener('click', function (e
     };    
 });
 
-liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
+
 
 function liquorSelection(event) {
     event.preventDefault();
@@ -43,9 +45,11 @@ function liquorSelection(event) {
     localStorage.setItem('spirit', JSON.stringify(previousSpirits));
 };
 
-liquorChoice.addEventListener('click', hideContainer)
+liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
+liquorChoice.addEventListener('click', hideSpiritContainer)
 
-function hideContainer () {
+
+function hideSpiritContainer () {
     if (liquorContainer.style.display !== 'none') {
         liquorContainer.style.display = 'none';
     } else { 
@@ -53,7 +57,35 @@ function hideContainer () {
     }
 };
 
+function hideLiquorContainer () {
+    if (liquorContainer.style.display !== 'none') {
+        liquorContainer.style.display = 'none';
+    } else { 
+        liquorContainer.style.display = 'block';
+    }
+};
 
+function hideCocktailContainer () {
+    if (cocktailContainer.style.display !== 'none') {
+        cocktailContainer.style.display = 'none';
+    } else { 
+        cocktailContainer.style.display = 'block';
+    }
+};
+
+function showContainer () {
+    if (cocktailContainer.style.display = 'none') {
+        cocktailContainer.style.display = 'block';
+    } else { 
+        cocktailContainer.style.display = 'block';
+    }
+}
+
+cocktailContainer.addEventListener('click', showContainer)
+cocktailContainer.addEventListener('click', hideCocktailContainer)
+
+movieContainer.addEventListener('click', showContainer)
+movieContainer.addEventListener('click', hideLiquorContainer)
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
