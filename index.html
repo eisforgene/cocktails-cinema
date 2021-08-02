@@ -17,7 +17,7 @@
         <h1 class="h1 text-white m-auto">Cocktails & Cinema</h1>
         <h2 class="h5">Hello, and welcome to a fun way of picking your movie.</h2>
             <h4 class="h4">
-            Step 1. Click on a spirit you're in the mood for. <br>
+            Step 1. Click on a  spirit you're in the mood for. <br>
             Step 2. Select one of three cocktails. <br> 
             Step 3. Receive your random movie suggestion based on your drink of choice! <br>
             Step 4. Click on the movie poster to search for the movie on Amazon! 
@@ -27,7 +27,7 @@
     <main class="container">
         <!-- create class container -->
         <div class="first-section">
-            <div class="liquor-container">
+            <div class="liquor-container" id="liquor-container">
                 <div id="liquor-selection">
                     <div class="container-text" id="question">Pick Your Spirit</div>
                     <div id="answer-buttons" class="liquor-btn-grid">
@@ -62,15 +62,15 @@
             </div> -->
         </div>
         </div> 
-        <div class="cocktail-container">
-            <div id="cocktail-selection">
+        <div class="hide" id="cocktail-container">
+            <div id="cocktail-selection" >
                 <div class="container-text" id="question">Pick Your Cocktail</div>
                 <div id="cocktail-answer" class="cocktail-btn-grid"></div>
             </div>
         </div>
        </div>
 
-        <div class="movie-container">
+        <div class="movie-container hide" id="movie-container">
             <div id="movie-title">
                 <div class="movie-container" id="question">
                     <h2>Here's a movie based on your choice!</h2>

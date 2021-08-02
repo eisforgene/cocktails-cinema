@@ -3,6 +3,9 @@ let moviesIndex = ["Action", "Comedy", "Drama", "Sci-Fi"]
 let movieCat = ""
 let previousSpirits = JSON.parse(localStorage.getItem('spirit')) || [];
 let previousMovies = JSON.parse(localStorage.getItem('movie')) || [];
+let liquorContainer = document.getElementById('liquor-container');
+let cocktailContainer = document.getElementById('cocktail-container');
+let movieContainer = document.getElementById('movie-container');
 
 renderPreviousSelections();
 
@@ -14,10 +17,10 @@ document.querySelector('#cocktail-answer').addEventListener('click', function (e
     if (event.target.matches('img')) {
         // alert('image clicked');
         movieSearch();
-    };
+    };    
 });
 
-liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
+
 
 function liquorSelection(event) {
     event.preventDefault();
@@ -41,6 +44,48 @@ function liquorSelection(event) {
     previousSpirits.push(liquorAnswer)
     localStorage.setItem('spirit', JSON.stringify(previousSpirits));
 };
+
+liquorChoice.addEventListener('click', liquorSelection); // call liquorSelection after click
+liquorChoice.addEventListener('click', hideSpiritContainer)
+
+
+function hideSpiritContainer () {
+    if (liquorContainer.style.display !== 'none') {
+        liquorContainer.style.display = 'none';
+    } else { 
+        liquorContainer.style.display = 'block';
+    }
+};
+
+function hideLiquorContainer () {
+    if (liquorContainer.style.display !== 'none') {
+        liquorContainer.style.display = 'none';
+    } else { 
+        liquorContainer.style.display = 'block';
+    }
+};
+
+function hideCocktailContainer () {
+    if (cocktailContainer.style.display !== 'none') {
+        cocktailContainer.style.display = 'none';
+    } else { 
+        cocktailContainer.style.display = 'block';
+    }
+};
+
+function showContainer () {
+    if (cocktailContainer.style.display = 'none') {
+        cocktailContainer.style.display = 'block';
+    } else { 
+        cocktailContainer.style.display = 'block';
+    }
+}
+
+cocktailContainer.addEventListener('click', showContainer)
+cocktailContainer.addEventListener('click', hideCocktailContainer)
+
+movieContainer.addEventListener('click', showContainer)
+movieContainer.addEventListener('click', hideLiquorContainer)
 
 function getCocktails(urlString, drinkType) { // call function with urlString as parameter from liquorSelection();
     fetch(urlString)
@@ -93,6 +138,8 @@ function getCocktails(urlString, drinkType) { // call function with urlString as
                 document.querySelector('#cocktail-answer').appendChild(cocktailCard);
             }
         })
+  
+
 };
 
 function movieSearch() {
@@ -116,7 +163,7 @@ function movieSearch() {
                 let movieTitle = document.getElementById("movieCat")
 
                 movieTitle.innerHTML = `<h4 id="movieHead">${movieData.Search[randomIndex].Title}</h4><p>Genre: ${movieCat}</p>`
-                movieEle.innerHTML = `<a href="https://www.amazon.com/Movies/b?ie=UTF8&node=2649512011"><img src="${movieData.Search[randomIndex].Poster}"/>`
+                movieEle.innerHTML = `<a href="https://www.amazon.com/s?k=${movieData.Search[randomIndex].Title}"><img src="${movieData.Search[randomIndex].Poster}"/>`
 
                 previousMovies.push(movieData.Search[randomIndex].Title)
                 localStorage.setItem("movie", JSON.stringify(previousMovies));
@@ -141,3 +188,6 @@ function renderPreviousSelections() { // append li item for each element in the 
     //     document.getElementById('spirit-list').appendChild(listItem);
     // }
 }
+
+
+
